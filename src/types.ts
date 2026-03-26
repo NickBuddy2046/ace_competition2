@@ -1,3 +1,20 @@
+export interface EARevenue {
+  eaId: string;
+  percentage: number;
+  color: string;
+}
+
+export interface PlayerRankingItem {
+  id: string;
+  rank: number;
+  prevRank?: number;
+  rankChange?: 'up' | 'down' | 'none';
+  playerName: string;
+  amount: number;
+  percentage?: number;
+  eaBreakdown: EARevenue[];
+}
+
 export interface RankingItem {
   id: string;
   rank: number;

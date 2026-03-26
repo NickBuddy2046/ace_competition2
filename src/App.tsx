@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Trophy, 
   TrendingUp, 
   Clock, 
   Info, 
@@ -13,22 +12,83 @@ import {
   Users,
   Facebook,
   Instagram,
-  Calendar
+  Calendar,
+  TrendingDown,
+  Minus
 } from 'lucide-react';
-import { RankingItem, SymbolItem, CharacterItem } from './types';
+import { RankingItem, SymbolItem, CharacterItem, PlayerRankingItem } from './types';
 
 // --- Mock Data ---
-const initialRankings: RankingItem[] = [
-  { id: 'ea-1', rank: 1, eaId: 'KIRIN', amount: 125430.50, percentage: 100, rankChange: 'none' },
-  { id: 'ea-2', rank: 2, eaId: 'PHOENIX', amount: 98765.20, percentage: 80, rankChange: 'none' },
-  { id: 'ea-3', rank: 3, eaId: 'COBRA', amount: 85432.10, percentage: 60, rankChange: 'none' },
-  { id: 'ea-4', rank: 4, eaId: 'LOTTO', amount: 72100.00, percentage: 50, rankChange: 'none' },
-  { id: 'ea-5', rank: 5, eaId: 'BUBO', amount: 65430.80, percentage: 45, rankChange: 'none' },
-  { id: 'ea-6', rank: 6, eaId: 'FALCON', amount: 58900.40, percentage: 40, rankChange: 'none' },
-  { id: 'ea-7', rank: 7, eaId: 'WIZARD', amount: 52100.90, percentage: 35, rankChange: 'none' },
-  { id: 'ea-8', rank: 8, eaId: 'KIRIN', amount: 48500.20, percentage: 30, rankChange: 'none' },
-  { id: 'ea-9', rank: 9, eaId: 'PHOENIX', amount: 42300.10, percentage: 25, rankChange: 'none' },
-  { id: 'ea-10', rank: 10, eaId: 'COBRA', amount: 38900.50, percentage: 20, rankChange: 'none' },
+const initialRankings: PlayerRankingItem[] = [
+  { 
+    id: 'ea-1', rank: 1, playerName: 'ALEX99', amount: 125430.50, percentage: 100, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'KIRIN', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'PHOENIX', percentage: 40, color: 'from-blue-600 via-cyan-400 to-blue-600' }
+    ]
+  },
+  { 
+    id: 'ea-2', rank: 2, playerName: 'TRADER', amount: 98765.20, percentage: 78.74, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'PHOENIX', percentage: 70, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'COBRA', percentage: 30, color: 'from-purple-600 via-fuchsia-400 to-purple-600' }
+    ]
+  },
+  { 
+    id: 'ea-3', rank: 3, playerName: 'CRYPTO', amount: 85432.10, percentage: 68.11, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'COBRA', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'LOTTO', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
+    ]
+  },
+  { 
+    id: 'ea-4', rank: 4, playerName: 'BULLRN', amount: 72100.00, percentage: 57.48, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'LOTTO', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  { 
+    id: 'ea-5', rank: 5, playerName: 'MOONBY', amount: 65430.80, percentage: 52.16, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'BUBO', percentage: 80, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'FALCON', percentage: 20, color: 'from-red-600 via-rose-400 to-red-600' }
+    ]
+  },
+  { 
+    id: 'ea-6', rank: 6, playerName: 'WHALE1', amount: 58900.40, percentage: 46.95, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'FALCON', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'WIZARD', percentage: 40, color: 'from-indigo-600 via-violet-400 to-indigo-600' }
+    ]
+  },
+  { 
+    id: 'ea-7', rank: 7, playerName: 'SNIPER', amount: 52100.90, percentage: 41.53, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'WIZARD', percentage: 90, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'KIRIN', percentage: 10, color: 'from-pink-600 via-pink-400 to-pink-600' }
+    ]
+  },
+  { 
+    id: 'ea-8', rank: 8, playerName: 'PROBOT', amount: 48500.20, percentage: 38.66, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'KIRIN', percentage: 40, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'PHOENIX', percentage: 30, color: 'from-teal-600 via-teal-400 to-teal-600' },
+      { eaId: 'COBRA', percentage: 30, color: 'from-blue-600 via-cyan-400 to-blue-600' }
+    ]
+  },
+  { 
+    id: 'ea-9', rank: 9, playerName: 'ALPHA', amount: 42300.10, percentage: 33.72, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'PHOENIX', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  { 
+    id: 'ea-10', rank: 10, playerName: 'OMEGA', amount: 38900.50, percentage: 31.01, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'COBRA', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'LOTTO', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
+    ]
+  },
 ];
 
 const characters: CharacterItem[] = [
@@ -39,6 +99,7 @@ const characters: CharacterItem[] = [
   { name: 'BUBO', imageUrl: '/image/Bubo.png' },
   { name: 'FALCON', imageUrl: '/image/Falcon.png' },
   { name: 'PYTHON', imageUrl: '/image/Python.png' },
+  { name: 'WIZARD', imageUrl: '/image/Wizard.png' },
 ];
 
 const symbols: SymbolItem[] = [
@@ -100,107 +161,49 @@ const SectionTitle = ({ children, subtitle }: { children: React.ReactNode, subti
   </div>
 );
 
-const DynamicEnergyBar: React.FC<{ percentage: number; className?: string; skewClass?: string; reverse?: boolean; responsive?: boolean; rankChange?: 'up' | 'down' | 'none'; cw?: number }> = ({ percentage, className = '', skewClass = 'skew-x-[-30deg]', reverse = false, responsive = false, rankChange, cw = 10 }) => {
-  const clampedPercentage = Math.max(0, Math.min(100, percentage));
 
-  const getIndicator = () => {
-    if (!rankChange || rankChange === 'none') {
-      const color = rankChange === 'none' ? '#94a3b8' : '#dc2626';
-      return (
-        <div 
-          className="absolute bottom-0 w-0 h-0 transition-all duration-1000 ease-out z-10"
-          style={{ 
-            borderLeft: responsive ? `${0.6 * cw}px solid transparent` : '6px solid transparent',
-            borderRight: responsive ? `${0.6 * cw}px solid transparent` : '6px solid transparent',
-            borderTop: responsive ? `${0.9 * cw}px solid ${color}` : `9px solid ${color}`,
-            [reverse ? 'right' : 'left']: `${clampedPercentage}%`, 
-            transform: reverse ? 'translateX(50%)' : 'translateX(-50%)' 
-          }}
-        />
-      );
-    }
 
-    const isUp = rankChange === 'up';
-    const color = isUp ? '#22c55e' : '#ef4444';
-    
-    return (
-      <div 
-        className="absolute bottom-0 w-0 h-0 transition-all duration-1000 ease-out z-10"
-        style={{ 
-          borderLeft: responsive ? `${0.6 * cw}px solid transparent` : '6px solid transparent',
-          borderRight: responsive ? `${0.6 * cw}px solid transparent` : '6px solid transparent',
-          ...(isUp 
-            ? { borderBottom: responsive ? `${0.9 * cw}px solid ${color}` : `9px solid ${color}` } 
-            : { borderTop: responsive ? `${0.9 * cw}px solid ${color}` : `9px solid ${color}` }
-          ),
-          [reverse ? 'right' : 'left']: `${clampedPercentage}%`, 
-          transform: reverse ? 'translateX(50%)' : 'translateX(-50%)',
-          filter: `drop-shadow(0 0 4px ${color})`
-        }}
-      />
-    );
-  };
+const StackedEnergyBar: React.FC<{ 
+  totalPercentage: number; 
+  breakdown: { eaId: string; percentage: number; color: string }[]; 
+  className?: string; 
+  skewClass?: string; 
+  reverse?: boolean; 
+  responsive?: boolean; 
+  cw?: number 
+}> = ({ totalPercentage, breakdown, className = '', skewClass = 'skew-x-[-30deg]', reverse = false, responsive = false, cw = 10 }) => {
+  const clampedPercentage = Math.max(0, Math.min(100, totalPercentage));
 
   return (
     <div className={`relative flex flex-col items-start ${className}`}>
-      {/* Indicator */}
+      {/* Bar Container */}
       <div 
-        className={`relative w-full ${responsive ? '' : 'h-2 mb-0.5'}`}
-        style={responsive ? { height: `${0.6 * cw}px`, marginBottom: `${0.2 * cw}px` } : {}}
-      >
-        {getIndicator()}
-      </div>
-      
-      {/* Bar Container - 移除背景與邊框，直接融入底圖的軌道 */}
-      <div 
-        className={`relative w-full ${responsive ? '' : 'h-[10px] md:h-[14px]'} ${skewClass} overflow-hidden`}
+        className={`relative w-full ${responsive ? '' : 'h-[12px] md:h-[16px]'} ${skewClass} overflow-hidden bg-slate-200/80 border border-slate-300 shadow-inner rounded-sm`}
         style={responsive ? { height: `${1.4 * cw}px` } : {}}
       >
         {/* Fill */}
         <div 
-          className={`absolute top-0 ${reverse ? 'right-0' : 'left-0'} h-full bg-gradient-to-r ${reverse ? 'from-orange-600 via-yellow-400 to-orange-600' : 'from-orange-600 via-yellow-400 to-orange-600'} transition-all duration-1000 ease-out ${reverse ? 'animate-energy-flow-reverse' : 'animate-energy-flow'} overflow-hidden`}
+          className={`absolute top-0 ${reverse ? 'right-0' : 'left-0'} h-full flex ${reverse ? 'flex-row-reverse' : 'flex-row'} transition-all duration-1000 ease-out`}
           style={{ width: `${clampedPercentage}%` }}
         >
-          {/* Sweep animation */}
-          <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/60 to-transparent ${reverse ? 'animate-sweep-reverse' : 'animate-sweep'}`} />
+          {breakdown.map((segment, idx) => (
+            <div 
+              key={idx}
+              className={`h-full bg-gradient-to-r ${segment.color} relative overflow-hidden border-r border-white/30 last:border-r-0`}
+              style={{ width: `${segment.percentage}%` }}
+            >
+              <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/60 to-transparent ${reverse ? 'animate-sweep-reverse' : 'animate-sweep'}`} />
+            </div>
+          ))}
         </div>
         {/* Inner highlight for 3D effect */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-white/30 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 pointer-events-none" />
       </div>
     </div>
   );
 };
 
-const RankingRow: React.FC<{ item: RankingItem }> = ({ item }) => {
-  const isTop3 = item.rank <= 3;
-  const trophyColor = item.rank === 1 ? 'text-yellow-400' : item.rank === 2 ? 'text-slate-300' : 'text-amber-600';
 
-  return (
-    <motion.div 
-      initial={{ x: -20, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      className="ranking-item group"
-    >
-      <div className="flex items-center gap-4 md:gap-6">
-        <div className="w-8 md:w-12 text-xl md:text-2xl font-black italic text-slate-500 group-hover:text-white transition-colors">
-          {item.rank}
-        </div>
-        {isTop3 && <Trophy className={`w-5 h-5 md:w-6 md:h-6 ${trophyColor} drop-shadow-lg`} />}
-        <div className="font-mono text-base md:text-lg tracking-widest text-slate-300">
-          EA <span className="text-white">{item.eaId}</span>
-        </div>
-      </div>
-      
-      <div className="flex items-center gap-6">
-        {item.percentage !== undefined && <DynamicEnergyBar percentage={item.percentage} />}
-        <div className="font-mono text-lg md:text-xl font-bold text-yellow-400 tracking-tighter text-right min-w-[120px]">
-          $ <AnimatedNumber value={item.amount} />
-        </div>
-      </div>
-    </motion.div>
-  );
-};
 
 const SymbolProgress: React.FC<{ symbol: string, percentage: number }> = ({ symbol, percentage }) => {
   const segments = 20;
@@ -253,8 +256,21 @@ const CountdownBox = ({ label, value }: { label: string, value: string }) => (
   </div>
 );
 
-const Navbar = () => {
+const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurrentPage: (page: 'home' | 'annual' | 'monthly') => void }) => {
   const scrollTo = (id: string) => {
+    if (currentPage !== 'home') {
+      setCurrentPage('home');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else if (id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -280,9 +296,9 @@ const Navbar = () => {
 
         {/* Navigation Links - Centered */}
         <div className="hidden md:flex items-center gap-12">
-          <button onClick={() => scrollTo('home')} className="text-white font-bold hover:text-yellow-500 transition-colors cursor-pointer text-sm tracking-wide">Home</button>
-          <button onClick={() => scrollTo('leaderboard')} className="text-white font-bold hover:text-yellow-500 transition-colors cursor-pointer text-sm tracking-wide">Leaderboard</button>
-          <button onClick={() => scrollTo('more-results')} className="text-white font-bold hover:text-yellow-500 transition-colors cursor-pointer text-sm tracking-wide">More Results</button>
+          <button onClick={() => scrollTo('home')} className={`font-bold transition-colors cursor-pointer text-sm tracking-wide ${currentPage === 'home' ? 'text-yellow-500' : 'text-white hover:text-yellow-500'}`}>Home</button>
+          <button onClick={() => { setCurrentPage('annual'); window.scrollTo(0, 0); }} className={`font-bold transition-colors cursor-pointer text-sm tracking-wide ${currentPage === 'annual' ? 'text-yellow-500' : 'text-white hover:text-yellow-500'}`}>Annual Results</button>
+          <button onClick={() => { setCurrentPage('monthly'); window.scrollTo(0, 0); }} className={`font-bold transition-colors cursor-pointer text-sm tracking-wide ${currentPage === 'monthly' ? 'text-yellow-500' : 'text-white hover:text-yellow-500'}`}>Monthly Results</button>
           <button onClick={() => scrollTo('rules')} className="text-white font-bold hover:text-yellow-500 transition-colors cursor-pointer text-sm tracking-wide">官方比賽細則</button>
         </div>
 
@@ -300,9 +316,568 @@ const Navbar = () => {
   );
 };
 
+const DUMMY_USERS = [
+  "ALEX99", "TRADER", "CRYPTO", "BULLRN", "MOONBY", 
+  "WHALE1", "SNIPER", "PROBOT", "ALPHA", "OMEGA"
+];
+
+const TotalRankingList = ({ rankings, isStatic = false }: { rankings: PlayerRankingItem[], isStatic?: boolean }) => {
+  return (
+    <div className="flex flex-col gap-4 md:gap-6 w-full relative z-10">
+      {rankings.map((item) => {
+        return (
+          <div 
+            key={item.id} 
+            className={`flex items-center w-full relative z-0 hover:z-50 bg-gradient-to-br from-amber-50/95 to-yellow-100/90 backdrop-blur-md rounded-2xl p-4 md:p-6 shadow-sm border border-yellow-200/60 hover:shadow-md transition-shadow ${
+              item.rank === 1 ? 'mb-16 md:mb-24 mt-12 md:mt-16' : 
+              item.rank === 2 ? 'mb-12 md:mb-16' : 
+              item.rank === 3 ? 'mb-8 md:mb-12' : 
+              item.rank >= 4 && item.rank <= 6 ? 'mb-6 md:mb-8' : 
+              ''
+            }`}
+          >
+            {/* Rank Number */}
+            <div className="w-32 md:w-64 flex-shrink-0 flex items-center justify-center relative z-20">
+              {item.rank <= 10 ? (
+                <div className="relative flex items-center justify-center">
+                  {/* Glow effect for top 3 */}
+                  {item.rank === 1 && <div className="absolute inset-0 bg-yellow-400 blur-xl opacity-60 rounded-full scale-[3.5] md:scale-[4] animate-pulse"></div>}
+                  {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-xl opacity-60 rounded-full scale-[2.5] md:scale-[3] animate-pulse"></div>}
+                  {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-xl opacity-60 rounded-full scale-[2] md:scale-[2.5] animate-pulse"></div>}
+                  
+                  <img 
+                    src={`/image/toptenimage/tops${item.rank}.png?v=2`} 
+                    alt={`Rank ${item.rank}`} 
+                    className={`relative z-10 w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-lg transition-transform ${
+                      item.rank === 1 ? 'scale-[3] md:scale-[3.5] drop-shadow-[0_0_25px_rgba(250,204,21,1)]' :
+                      item.rank === 2 ? 'scale-[2.2] md:scale-[2.5] drop-shadow-[0_0_20px_rgba(148,163,184,0.9)]' :
+                      item.rank === 3 ? 'scale-[1.8] md:scale-[2.0] drop-shadow-[0_0_20px_rgba(217,119,6,0.9)]' :
+                      item.rank >= 4 && item.rank <= 6 ? 'scale-[1.5] md:scale-[1.7]' : ''
+                    }`}
+                  />
+                </div>
+              ) : (
+                <span className="text-4xl md:text-5xl font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif' }}>
+                  {item.rank}
+                </span>
+              )}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 flex flex-col gap-3 pl-4 md:pl-6 border-l-2 border-slate-200/80">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div className="flex flex-col gap-2 flex-1 min-w-0">
+                  <div className="flex items-center gap-2 md:gap-4 flex-nowrap min-w-0">
+                    <div className="text-2xl md:text-4xl font-black text-slate-800 tracking-tight truncate shrink min-w-0">{item.playerName}</div>
+                    
+                    <div className="flex items-center shrink-0">
+                      {item.rankChange === 'up' && <div className="flex items-center text-green-500 bg-green-100 p-1 md:p-1.5 rounded-full"><TrendingUp className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} /></div>}
+                      {item.rankChange === 'down' && <div className="flex items-center text-red-500 bg-red-100 p-1 md:p-1.5 rounded-full"><TrendingDown className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} /></div>}
+                      {item.rankChange === 'none' && <div className="flex items-center text-slate-400 bg-slate-100 p-1 md:p-1.5 rounded-full"><Minus className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} /></div>}
+                    </div>
+                    
+                    {/* Coins after name */}
+                    <div className="flex items-center -space-x-3 md:-space-x-4 ml-1 md:ml-2 shrink-0">
+                      {[...item.eaBreakdown]
+                        .sort((a, b) => b.percentage - a.percentage)
+                        .slice(0, 3)
+                        .map((ea, idx) => {
+                        const coinName = ea.eaId.charAt(0).toUpperCase() + ea.eaId.slice(1).toLowerCase() + 'Coin.png';
+                        return (
+                          <div key={idx} className="relative group flex items-center justify-center z-10 hover:z-20 transition-all duration-300">
+                            <img 
+                              src={`/${coinName}`} 
+                              alt={ea.eaId} 
+                              className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-xl hover:scale-125 hover:-translate-y-2 transition-all duration-300 cursor-help" 
+                            />
+                            {/* Custom Tooltip */}
+                            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50 shadow-xl border border-slate-700">
+                              {ea.eaId}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-left md:text-right w-full md:w-[280px] lg:w-[320px] flex flex-col items-start md:items-end justify-center shrink-0">
+                  <div 
+                    className="text-4xl md:text-6xl font-black italic tracking-tighter text-white whitespace-nowrap tabular-nums"
+                    style={{ 
+                      WebkitTextStroke: '2px #000080',
+                      textShadow: '0 0 15px rgba(0, 0, 255, 0.8), 0 0 30px rgba(0, 0, 255, 0.6), 4px 4px 6px rgba(0,0,0,0.9)'
+                    }}
+                  >
+                    $ {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Stacked Energy Bar */}
+              <div className="w-full mt-2">
+                <StackedEnergyBar 
+                  totalPercentage={item.percentage || 0} 
+                  breakdown={item.eaBreakdown} 
+                  className="w-full" 
+                  skewClass="skew-x-[-20deg]"
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const EARankingList = ({ rankings, isStatic = false }: { rankings: RankingItem[], isStatic?: boolean }) => {
+  return (
+    <div className="flex flex-col gap-1 md:gap-0 px-2 md:px-8">
+      <AnimatePresence>
+        {rankings.map((item) => (
+          <motion.div 
+            layout 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            key={item.id} 
+            className={`grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-3 md:gap-x-6 items-center py-2 md:py-1 hover:bg-white/40 rounded-xl px-2 -mx-2 transition-colors duration-200 cursor-default border-b border-slate-300/30 last:border-0 relative z-0 hover:z-50 ${
+              item.rank === 1 ? 'mb-12 md:mb-16 mt-8 md:mt-12' : 
+              item.rank === 2 ? 'mb-8 md:mb-12' : 
+              item.rank === 3 ? 'mb-6 md:mb-8' : 
+              item.rank >= 4 && item.rank <= 6 ? 'mb-4 md:mb-6' : 
+              ''
+            }`}
+          >
+          <div className="w-5 md:w-6 flex justify-center items-center">
+            {item.rankChange === 'up' && <TrendingUp className="w-5 h-5 text-green-500 drop-shadow-sm" strokeWidth={3} />}
+            {item.rankChange === 'down' && <TrendingDown className="w-5 h-5 text-red-500 drop-shadow-sm" strokeWidth={3} />}
+            {item.rankChange === 'none' && <Minus className="w-5 h-5 text-slate-300 drop-shadow-sm" strokeWidth={3} />}
+          </div>
+          <div className="w-28 md:w-48 flex justify-center items-center">
+            {item.rank <= 10 ? (
+              <div className="relative flex items-center justify-center">
+                {/* Glow effect for top 3 */}
+                {item.rank === 1 && <div className="absolute inset-0 bg-yellow-400 blur-lg opacity-60 rounded-full scale-[3.5] md:scale-[4] animate-pulse"></div>}
+                {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-lg opacity-60 rounded-full scale-[2.5] md:scale-[3] animate-pulse"></div>}
+                {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-lg opacity-60 rounded-full scale-[2] md:scale-[2.5] animate-pulse"></div>}
+                
+                <img 
+                  src={`/image/toptenimage/tops${item.rank}.png?v=2`} 
+                  alt={`Rank ${item.rank}`} 
+                  className={`relative z-10 w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-md transition-transform ${
+                    item.rank === 1 ? 'scale-[3] md:scale-[3.5] drop-shadow-[0_0_20px_rgba(250,204,21,1)]' :
+                    item.rank === 2 ? 'scale-[2.2] md:scale-[2.5] drop-shadow-[0_0_15px_rgba(148,163,184,0.9)]' :
+                    item.rank === 3 ? 'scale-[1.8] md:scale-[2.0] drop-shadow-[0_0_15px_rgba(217,119,6,0.9)]' :
+                    item.rank >= 4 && item.rank <= 6 ? 'scale-[1.5] md:scale-[1.7]' : ''
+                  }`}
+                />
+              </div>
+            ) : (
+              <span className="text-3xl md:text-4xl font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif' }}>
+                {item.rank}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-3 md:gap-6 pl-2 md:pl-4">
+            <span 
+              className="text-3xl md:text-4xl font-black text-slate-800 tracking-widest uppercase text-left leading-none"
+            >
+              {item.eaId.substring(0, 6).toUpperCase()}
+            </span>
+          </div>
+          <span 
+            className="text-2xl md:text-3xl font-black text-slate-800 leading-none text-right opacity-80"
+          >
+            $
+          </span>
+          <span 
+            className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight text-right leading-none w-[160px] md:w-[220px] tabular-nums whitespace-nowrap"
+          >
+            {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
+          </span>
+        </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const marqueeImages = [
+  '/eabitimage/Cobra_bit.png',
+  '/eabitimage/Falcon_bit.png',
+  '/eabitimage/Python_bit.png',
+  '/eabitimage/Tiger_bit.png',
+  '/eabitimage/bubo_bit.png',
+  '/eabitimage/gekco_bit.png',
+  '/eabitimage/kirin_bit.png',
+  '/eabitimage/lotto_bit.png',
+  '/eabitimage/shark_bit.png',
+  '/eabitimage/Wizard_bit.png',
+  '/eabitimage/Phoenix_bit.png'
+];
+
+// Create an array large enough to loop seamlessly (4 sets of images)
+const marqueeContent = [...marqueeImages, ...marqueeImages, ...marqueeImages, ...marqueeImages];
+
+const StatisticsPanel = () => {
+  return (
+    <div className="w-full mt-12 relative overflow-hidden flex flex-col gap-6 py-4">
+      {/* Top Marquee */}
+      <div 
+        className="relative flex overflow-x-hidden w-full h-16 md:h-20"
+        style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+      >
+        <div className="flex w-max animate-marquee-left items-center">
+          {marqueeContent.map((src, idx) => (
+            <img key={`top-${idx}`} src={src} alt="EA Bit" className="h-12 md:h-16 w-auto mx-4 md:mx-8 object-contain opacity-80 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+          ))}
+        </div>
+      </div>
+
+      {/* Statistics Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl mx-auto z-10 px-4">
+        <div className="metallic-card rounded-2xl p-6 flex flex-col items-center justify-center border border-yellow-500/30 text-center shadow-xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <p className="text-yellow-500 font-mono text-xs md:text-sm tracking-widest mb-2 relative z-10">Total Volume(Lots)</p>
+          <h4 className="text-3xl md:text-4xl font-black text-white relative z-10" style={{ fontFamily: 'Impact, sans-serif' }}>0.00</h4>
+        </div>
+        <div className="metallic-card rounded-2xl p-6 flex flex-col items-center justify-center border border-yellow-500/30 text-center shadow-xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <p className="text-yellow-500 font-mono text-xs md:text-sm tracking-widest mb-2 relative z-10">Total Participants</p>
+          <h4 className="text-3xl md:text-4xl font-black text-white relative z-10" style={{ fontFamily: 'Impact, sans-serif' }}>0</h4>
+        </div>
+        <div className="metallic-card rounded-2xl p-6 flex flex-col items-center justify-center border border-yellow-500/30 text-center shadow-xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <p className="text-yellow-500 font-mono text-xs md:text-sm tracking-widest mb-2 relative z-10">Total Orders</p>
+          <h4 className="text-3xl md:text-4xl font-black text-white relative z-10" style={{ fontFamily: 'Impact, sans-serif' }}>0</h4>
+        </div>
+        <div className="metallic-card rounded-2xl p-6 flex flex-col items-center justify-center border border-yellow-500/30 text-center shadow-xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <p className="text-yellow-500 font-mono text-xs md:text-sm tracking-widest mb-2 relative z-10">Total Profit</p>
+          <h4 className="text-3xl md:text-4xl font-black text-white relative z-10" style={{ fontFamily: 'Impact, sans-serif' }}>$0.00</h4>
+        </div>
+      </div>
+
+      {/* Bottom Marquee */}
+      <div 
+        className="relative flex overflow-x-hidden w-full h-16 md:h-20"
+        style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+      >
+        <div className="flex w-max animate-marquee-right items-center">
+          {marqueeContent.map((src, idx) => (
+            <img key={`bottom-${idx}`} src={src} alt="EA Bit" className="h-12 md:h-16 w-auto mx-4 md:mx-8 object-contain opacity-80 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SymbolsSection = ({ symbolsData }: { symbolsData: SymbolItem[] }) => {
+  return (
+    <section id="symbols">
+      <SectionTitle subtitle="TRADING ASSETS DISTRIBUTION">Most Used Symbols</SectionTitle>
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <div className="w-full max-w-[950px] rounded-2xl p-8 shadow-2xl relative overflow-x-auto" style={{
+          background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.5)'
+        }}>
+          {/* Add some abstract background shapes to match the image */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none min-w-[850px]" style={{
+            background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+          }}></div>
+          <div className="relative z-10 flex flex-col gap-1 min-w-[800px]">
+            {symbolsData.map((s) => (
+              <motion.div layout transition={{ type: 'spring', stiffness: 300, damping: 30 }} key={s.symbol}>
+                <SymbolProgress symbol={s.symbol} percentage={s.percentage} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <StatisticsPanel />
+    </section>
+  );
+};
+
+const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsData: SymbolItem[] }) => {
+  // Generate mock annual rankings (larger numbers)
+  const annualRankings = initialRankings.map(item => ({
+    ...item,
+    amount: item.amount * 12 + Math.floor(Math.random() * 50000),
+  })).sort((a, b) => b.amount - a.amount);
+  
+  const maxAmount = annualRankings[0].amount;
+  const finalAnnualRankings = annualRankings.map((item, index) => ({
+    ...item,
+    rank: index + 1,
+    percentage: Math.max(15, (item.amount / maxAmount) * 100)
+  }));
+
+  // Generate mock annual EA rankings
+  const annualEARankings = DUMMY_USERS.map((user, index) => {
+    const amount = 800000 - (index * 60000) + Math.floor(Math.random() * 20000);
+    return {
+      id: `annual-ea-${index}`,
+      rank: index + 1,
+      playerName: user,
+      eaId: characters[index % characters.length].name,
+      amount: amount,
+      percentage: Math.max(15, (amount / 800000) * 100),
+      rankChange: ['up', 'down', 'none'][Math.floor(Math.random() * 3)] as 'up' | 'down' | 'none'
+    };
+  }).sort((a, b) => b.amount - a.amount).map((item, index) => ({ ...item, rank: index + 1 }));
+
+  return (
+    <>
+      <header className="relative z-10 h-[65vw] min-h-[80vh] flex flex-col items-start justify-start pt-24 px-4 md:px-8 pointer-events-none">
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 transition-colors pointer-events-auto bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm border border-yellow-500/30"
+        >
+          <ChevronRight className="w-6 h-6 rotate-180" />
+          <span className="font-bold tracking-wider">BACK TO HOME</span>
+        </button>
+      </header>
+
+      <main className="relative z-10 max-w-6xl mx-auto px-4 pb-24 space-y-24">
+        <div className="text-center mb-16 relative">
+          <h1 
+            className="text-6xl md:text-8xl lg:text-9xl font-black italic tracking-tighter uppercase relative z-10 text-yellow-500"
+            style={{
+              WebkitTextStroke: '3px #000',
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)',
+              marginTop: '10px',
+              marginBottom: '24px'
+            }}
+          >
+            ANNUAL RESULTS
+          </h1>
+        <p className="text-xl md:text-2xl text-slate-300 font-bold tracking-widest">2026.05 - 2027.04</p>
+      </div>
+
+      <section className="mb-24">
+        <SectionTitle subtitle="SPECIAL AWARDS">年度特別大獎</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+          {/* Award 1 - Highest Profit */}
+          <div className="flex flex-col items-center group">
+            <div className="clip-banner bg-gradient-to-b from-slate-300 to-slate-500 p-1 w-full max-w-[280px] aspect-[3/4] relative transition-transform duration-500 group-hover:-translate-y-4 md:mt-12">
+              <div className="clip-banner bg-slate-900 w-full h-full flex flex-col items-center pt-8 pb-16 px-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+                <TrendingUp className="w-12 h-12 text-slate-300 mb-4 drop-shadow-[0_0_10px_rgba(203,213,225,0.8)]" />
+                <h3 className="text-2xl font-black italic text-white text-center mb-2 leading-tight">HIGHEST<br/>PROFIT</h3>
+                <div className="w-12 h-1 bg-slate-400 mb-6"></div>
+                <img src="/image/Kirin.png" alt="Kirin" className="w-28 h-28 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500" />
+                <p className="text-slate-300 font-bold text-xl mt-4 tracking-widest">KIRIN</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Award 2 - Best EA of the Year (Center, larger/higher) */}
+          <div className="flex flex-col items-center group">
+            <div className="clip-banner bg-gradient-to-b from-yellow-400 to-amber-600 p-1 w-full max-w-[320px] aspect-[3/4] relative transition-transform duration-500 group-hover:-translate-y-4 z-10">
+              <div className="clip-banner bg-slate-900 w-full h-full flex flex-col items-center pt-10 pb-20 px-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+                <div className="absolute inset-0 bg-yellow-500/10 animate-pulse"></div>
+                <Award className="w-16 h-16 text-yellow-400 mb-4 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)]" />
+                <h3 className="text-3xl font-black italic text-white text-center mb-2 leading-tight">BEST EA<br/>OF THE YEAR</h3>
+                <div className="w-16 h-1 bg-yellow-500 mb-6 shadow-[0_0_10px_rgba(250,204,21,0.8)]"></div>
+                <img src="/image/Phoenix.png" alt="Phoenix" className="w-36 h-36 object-contain drop-shadow-[0_0_20px_rgba(250,204,21,0.4)] group-hover:scale-110 transition-transform duration-500" />
+                <p className="text-yellow-400 font-black text-2xl mt-4 tracking-widest drop-shadow-md">PHOENIX</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Award 3 - Most Popular */}
+          <div className="flex flex-col items-center group">
+            <div className="clip-banner bg-gradient-to-b from-amber-700 to-orange-900 p-1 w-full max-w-[280px] aspect-[3/4] relative transition-transform duration-500 group-hover:-translate-y-4 md:mt-12">
+              <div className="clip-banner bg-slate-900 w-full h-full flex flex-col items-center pt-8 pb-16 px-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+                <Users className="w-12 h-12 text-amber-600 mb-4 drop-shadow-[0_0_10px_rgba(217,119,6,0.8)]" />
+                <h3 className="text-2xl font-black italic text-white text-center mb-2 leading-tight">MOST<br/>POPULAR</h3>
+                <div className="w-12 h-1 bg-amber-600 mb-6"></div>
+                <img src="/image/Cobra.png" alt="Cobra" className="w-28 h-28 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500" />
+                <p className="text-amber-500 font-bold text-xl mt-4 tracking-widest">COBRA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <SectionTitle subtitle="ANNUAL TOTAL RANKING">年度合總盈利排名</SectionTitle>
+        <div 
+          className="relative rounded-[2rem] p-8 md:p-12 shadow-2xl text-slate-900 border border-white/60 max-w-6xl mx-auto w-full"
+          style={{
+            background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.5)'
+          }}
+        >
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-[2rem]" style={{
+            background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+          }}></div>
+          <TotalRankingList rankings={finalAnnualRankings} isStatic={true} />
+        </div>
+      </section>
+
+      <section>
+        <SectionTitle subtitle="ANNUAL EA RANKING">年度各EA合總排名</SectionTitle>
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
+          <div className="w-full max-w-[1150px] rounded-2xl p-4 md:p-8 shadow-2xl relative" style={{
+            background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.5)'
+          }}>
+            <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-2xl" style={{
+              background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+            }}></div>
+            <div className="relative z-10">
+              <div className="text-center mb-6 border-b border-slate-300/50 pb-4 relative flex items-center justify-center">
+                <h3 className="text-3xl md:text-4xl font-black text-slate-800 uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>ALL EA RANKING</h3>
+              </div>
+              <div className="flex flex-col gap-1 md:gap-0 px-2 md:px-8">
+                <EARankingList rankings={annualEARankings} isStatic={true} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SymbolsSection symbolsData={symbolsData} />
+    </main>
+    </>
+  );
+};
+
+const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsData: SymbolItem[] }) => {
+  const [selectedMonth, setSelectedMonth] = useState('2026-05');
+  
+  const months = [
+    "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10",
+    "2026-11", "2026-12", "2027-01", "2027-02", "2027-03", "2027-04"
+  ];
+
+  // Generate mock monthly rankings based on selected month
+  const seed = parseInt(selectedMonth.replace('-', ''));
+  
+  const monthlyRankingsData = initialRankings.map(item => ({
+    ...item,
+    amount: item.amount * (0.8 + (seed % 10) * 0.05) + Math.floor(Math.random() * 10000),
+  })).sort((a, b) => b.amount - a.amount);
+  
+  const maxAmount = monthlyRankingsData[0].amount;
+  const finalMonthlyRankings = monthlyRankingsData.map((item, index) => ({
+    ...item,
+    rank: index + 1,
+    percentage: Math.max(15, (item.amount / maxAmount) * 100)
+  }));
+
+  const monthlyEARankings = DUMMY_USERS.map((user, index) => {
+    const amount = 100000 - (index * 8000) + Math.floor(Math.random() * 5000) * (seed % 5);
+    return {
+      id: `monthly-ea-${index}`,
+      rank: index + 1,
+      playerName: user,
+      eaId: characters[index % characters.length].name,
+      amount: amount,
+      percentage: Math.max(15, (amount / 100000) * 100),
+      rankChange: ['up', 'down', 'none'][Math.floor(Math.random() * 3)] as 'up' | 'down' | 'none'
+    };
+  }).sort((a, b) => b.amount - a.amount).map((item, index) => ({ ...item, rank: index + 1 }));
+
+  return (
+    <>
+      <header className="relative z-10 h-[65vw] min-h-[80vh] flex flex-col items-start justify-start pt-24 px-4 md:px-8 pointer-events-none">
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 text-yellow-500 hover:text-yellow-400 transition-colors pointer-events-auto bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm border border-yellow-500/30"
+        >
+          <ChevronRight className="w-6 h-6 rotate-180" />
+          <span className="font-bold tracking-wider">BACK TO HOME</span>
+        </button>
+      </header>
+
+      <main className="relative z-10 max-w-6xl mx-auto px-4 pb-24 space-y-16">
+        <div className="text-center mb-8 relative">
+          <h1 
+            className="text-6xl md:text-8xl lg:text-9xl font-black italic tracking-tighter uppercase relative z-10 text-yellow-500"
+            style={{
+              WebkitTextStroke: '3px #000',
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)',
+              marginTop: '10px',
+              marginBottom: '24px'
+            }}
+          >
+            MONTHLY RESULTS
+          </h1>
+        </div>
+
+      {/* Month Selector */}
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+        {months.map(month => (
+          <button
+            key={month}
+            onClick={() => setSelectedMonth(month)}
+            className={`px-4 py-2 md:px-6 md:py-3 rounded-xl font-bold tracking-widest transition-all ${
+              selectedMonth === month 
+                ? 'bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.5)] scale-105' 
+                : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'
+            }`}
+          >
+            {month}
+          </button>
+        ))}
+      </div>
+
+      <section>
+        <SectionTitle subtitle={`TOTAL RANKING - ${selectedMonth}`}>月度合總盈利排名</SectionTitle>
+        <div 
+          className="relative rounded-[2rem] p-8 md:p-12 shadow-2xl text-slate-900 border border-white/60 max-w-6xl mx-auto w-full"
+          style={{
+            background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.5)'
+          }}
+        >
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-[2rem]" style={{
+            background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+          }}></div>
+          <TotalRankingList rankings={finalMonthlyRankings} isStatic={true} />
+        </div>
+      </section>
+
+      <section>
+        <SectionTitle subtitle={`EA RANKING - ${selectedMonth}`}>月度各EA排名</SectionTitle>
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
+          <div className="w-full max-w-[1150px] rounded-2xl p-4 md:p-8 shadow-2xl relative" style={{
+            background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.5)'
+          }}>
+            <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-2xl" style={{
+              background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+            }}></div>
+            <div className="relative z-10">
+              <div className="text-center mb-6 border-b border-slate-300/50 pb-4 relative flex items-center justify-center">
+                <h3 className="text-3xl md:text-4xl font-black text-slate-800 uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>ALL EA RANKING</h3>
+              </div>
+              <div className="flex flex-col gap-1 md:gap-0 px-2 md:px-8">
+                <EARankingList rankings={monthlyEARankings} isStatic={true} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SymbolsSection symbolsData={symbolsData} />
+    </main>
+    </>
+  );
+};
+
 // --- Main App ---
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'annual' | 'monthly'>('home');
   const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
   const [timeElapsed, setTimeElapsed] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
   const [monthlyRankings, setMonthlyRankings] = useState(initialRankings);
@@ -313,18 +888,13 @@ export default function App() {
   const [cw, setCw] = useState(10); // Default 1% of container width
 
   useEffect(() => {
-    const DUMMY_USERS = [
-      "ALEX99", "TRADER", "CRYPTO", "BULLRN", "MOONBY", 
-      "WHALE1", "SNIPER", "PROBOT", "ALPHA", "OMEGA"
-    ];
-
     // Generate dummy data based on the selected character
     const generateRankings = (charName: string) => {
       // Create a stable seed based on character name length and first letter
       const seed = charName.length * charName.charCodeAt(0);
       const baseAmount = seed * 100 + 50000;
       
-      return Array.from({ length: 10 }).map((_, i) => {
+      const generated = Array.from({ length: 10 }).map((_, i) => {
         // Small random factor so the initial gaps are tight
         const randomFactor = (seed * (i + 1)) % 500;
         const nameIndex = (seed + i) % DUMMY_USERS.length;
@@ -334,39 +904,51 @@ export default function App() {
           eaId: DUMMY_USERS[nameIndex],
           // Make the gap between ranks much smaller (e.g., 200-500) so they can overtake each other easily
           amount: baseAmount - (i * 300) + randomFactor,
-          percentage: Math.max(10, 100 - (i * 10)),
+          percentage: 0, // will be calculated below
           rankChange: 'none' as 'up' | 'down' | 'none',
         };
-      }).sort((a, b) => b.amount - a.amount).map((item, index) => ({ ...item, rank: index + 1 }));
+      }).sort((a, b) => b.amount - a.amount);
+
+      const maxAmount = generated[0].amount;
+      return generated.map((item, index) => ({
+        ...item,
+        rank: index + 1,
+        percentage: Math.max(15, (item.amount / maxAmount) * 100)
+      }));
     };
     
     setCharacterRankings(generateRankings(selectedCharacter));
 
-    // Dynamic Simulation: Randomly update amounts every 2 seconds
-    const interval = setInterval(() => {
-      setCharacterRankings(prev => {
-        const newRankings = prev.map(item => {
-          // Randomly increase amount for some users to simulate live trading
-          // Higher chance and higher amount to force rank changes
-          const increase = Math.random() > 0.3 ? Math.floor(Math.random() * 600) : 0;
-          return { ...item, amount: item.amount + increase };
-        });
-        
-        // Re-sort and update rankings
-        return newRankings
-          .sort((a, b) => b.amount - a.amount)
-          .map((item, index) => {
+      // Dynamic Simulation: Randomly update amounts every 2 seconds
+      const interval = setInterval(() => {
+        setCharacterRankings(prev => {
+          const newRankings = prev.map(item => {
+            // Randomly increase amount for some users to simulate live trading
+            // Higher chance and higher amount to force rank changes
+            const increase = Math.random() > 0.3 ? Math.floor(Math.random() * 600) : 0;
+            return { ...item, amount: item.amount + increase };
+          });
+          
+          // Re-sort and update rankings
+          const sorted = newRankings.sort((a, b) => b.amount - a.amount);
+          const maxAmount = sorted[0].amount;
+
+          return sorted.map((item, index) => {
             const oldRank = item.rank;
             const newRank = index + 1;
             let rankChange: 'up' | 'down' | 'none' = 'none';
             if (newRank < oldRank) rankChange = 'up';
             else if (newRank > oldRank) rankChange = 'down';
-            else rankChange = item.rankChange; // keep previous change indicator if rank didn't change this tick
             
-            return { ...item, rank: newRank, rankChange };
+            return { 
+              ...item, 
+              rank: newRank, 
+              rankChange,
+              percentage: Math.max(15, (item.amount / maxAmount) * 100)
+            };
           });
-      });
-    }, 2000);
+        });
+      }, 2000);
 
     return () => clearInterval(interval);
   }, [selectedCharacter]);
@@ -496,7 +1078,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen pb-20 bg-black text-white">
-      <Navbar />
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       
       {/* Background Image */}
       <div 
@@ -510,11 +1092,13 @@ export default function App() {
         }}
       />
       
-      {/* Header / Hero Section */}
-      <header id="home" className="relative z-10 h-[65vw] min-h-[80vh] flex flex-col items-center justify-center pt-20 pb-20 px-4 text-center overflow-hidden">
-      </header>
+      {currentPage === 'home' && (
+        <>
+          {/* Header / Hero Section */}
+          <header id="home" className="relative z-10 h-[65vw] min-h-[80vh] flex flex-col items-center justify-center pt-20 pb-20 px-4 text-center overflow-hidden">
+          </header>
 
-      <main className="relative z-10 max-w-5xl mx-auto px-4 pb-24 space-y-24">
+          <main className="relative z-10 max-w-6xl mx-auto px-4 pb-24 space-y-24">
         
         {/* Leaderboard Section */}
         <section id="leaderboard" className="scroll-mt-20">
@@ -574,150 +1158,51 @@ export default function App() {
               <SectionTitle subtitle="MONTHLY TOTAL RANKING">月總排名</SectionTitle>
               <div 
                 ref={containerRef}
-                className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 w-full"
+                className="relative rounded-[2rem] p-8 md:p-12 shadow-2xl text-slate-900 border border-white/60 max-w-6xl mx-auto w-full"
+                style={{
+                  background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.5)'
+                }}
               >
-                <img src="/image/month lead2.png" alt="Monthly Total Ranking" className="w-full h-auto block" />
+                <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none" style={{
+                  background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+                }}></div>
                 
-                {/* 
-                  【微調指南】
-                  如果您發現能量條超出了底圖的軌道範圍，您可以直接修改下方的陣列數值。
-                  - topPositions: 控制上下位置 (數值越大越往下)
-                  - leftWidths / rightWidths: 控制能量條的長度 (數值越小，能量條越短，就不會超出範圍)
-                  - leftAnchors / rightAnchors: 控制能量條靠近中間的起始點
-                  
-                  💡 小提示：您可以將下方的 DEBUG_MODE 改為 true，
-                  這會為能量條加上紅色的外框，幫助您更精準地對齊底圖！
-                */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {(() => {
-                    const DEBUG_MODE = false; // 改為 true 可以顯示紅色對齊輔助線
-                    return monthlyRankings.map((item, index) => {
-                      // 【垂直位置微調】
-                      const topPositions = [
-                        12.7, 20.7, 29.0, 37.6, 45.7, 
-                        54.2, 63.5, 72.9, 82.2, 91.4
-                      ];
-                      
-                      // 【左邊能量條】長度微調 (如果超出左邊界，請把這裡的數字改小)
-                      const leftWidths = [
-                        13.2, 15.0, 17.0, 19.0, 21.0, 
-                        23.0, 25.0, 27.0, 29.0, 31.0
-                      ];
-                      // 【左邊能量條】靠中間的錨點微調 (固定右側，向左延伸)
-                      const leftAnchors = [
-                        46.4, 46.3, 46.0, 46.0, 46.0, 
-                        46.0, 46.0, 46.0, 46.0, 46.0
-                      ];
-                      
-                      // 【右邊能量條】長度微調 (如果超出右邊界，請把這裡的數字改小)
-                      const rightWidths = [
-                        13.2, 15.0, 17.0, 19.0, 21.0, 
-                        23.0, 25.0, 27.0, 29.0, 31.0
-                      ];
-                      // 【右邊能量條】靠中間的錨點微調 (固定左側，向右延伸)
-                      const rightAnchors = [
-                        61.4, 61.4, 61.4, 61.4, 61.4, 
-                        61.4, 61.4, 61.4, 61.4, 61.4
-                      ];
-                      
-                      const topPos = topPositions[index]; 
-                      const leftWidth = leftWidths[index];
-                      const leftAnchor = leftAnchors[index];
-                      const rightWidth = rightWidths[index];
-                      const rightAnchor = rightAnchors[index];
-
-                      return (
-                        <React.Fragment key={item.rank}>
-                          {/* 左邊文字 (EA XXXXXX) */}
-                          <div
-                            className={`absolute flex items-baseline justify-end ${DEBUG_MODE ? 'border border-red-500 bg-red-500/20' : ''}`}
-                            style={{
-                              top: `calc(${topPos}% - ${3.2 * cw}px)`,
-                              right: `${100 - leftAnchor - 0.5}%`,
-                              gap: `${0.5 * cw}px`,
-                              textShadow: '0px 0px 4px #000080, 0px 0px 8px #0000ff, 1px 1px 2px #000',
-                            }}
-                          >
-                            <span className="text-white font-black italic" style={{ fontSize: `${1.6 * cw}px`, lineHeight: 1 }}>EA</span>
-                            <span className="text-white font-black italic tracking-wider" style={{ fontSize: `${2.4 * cw}px`, lineHeight: 1 }}>{item.eaId}</span>
-                          </div>
-
-                          {/* 左邊能量條 */}
-                          <div 
-                            className={`absolute ${DEBUG_MODE ? 'border border-red-500 bg-red-500/20' : ''}`}
-                            style={{ 
-                              top: `${topPos}%`, 
-                              right: `${100 - leftAnchor}%`,
-                              width: `${leftWidth}%`
-                            }}
-                          >
-                            {item.percentage !== undefined && (
-                              <DynamicEnergyBar percentage={item.percentage} className="w-full" skewClass="skew-x-[30deg]" reverse={true} responsive={true} rankChange={item.rankChange} cw={cw} />
-                            )}
-                          </div>
-
-                          {/* 右邊文字 ($ 00,000.00) */}
-                          <div
-                            className={`absolute flex items-baseline justify-start ${DEBUG_MODE ? 'border border-red-500 bg-red-500/20' : ''}`}
-                            style={{
-                              top: `calc(${topPos}% - ${3.2 * cw}px)`,
-                              left: `${rightAnchor}%`,
-                              gap: `${0.5 * cw}px`,
-                              textShadow: '0px 0px 4px #000080, 0px 0px 8px #0000ff, 1px 1px 2px #000',
-                            }}
-                          >
-                            <span className="text-white font-black italic" style={{ fontSize: `${1.8 * cw}px`, lineHeight: 1 }}>$</span>
-                            <span className="text-white font-black italic tracking-wider" style={{ fontSize: `${2.4 * cw}px`, lineHeight: 1 }}><AnimatedNumber value={item.amount} /></span>
-                          </div>
-
-                          {/* 右邊能量條 */}
-                          <div 
-                            className={`absolute ${DEBUG_MODE ? 'border border-red-500 bg-red-500/20' : ''}`}
-                            style={{ 
-                              top: `${topPos}%`, 
-                              left: `${rightAnchor}%`,
-                              width: `${rightWidth}%`
-                            }}
-                          >
-                            {item.percentage !== undefined && (
-                              <DynamicEnergyBar percentage={item.percentage} className="w-full" skewClass="skew-x-[-30deg]" responsive={true} cw={cw} />
-                            )}
-                          </div>
-                        </React.Fragment>
-                      );
-                    });
-                  })()}
-                </div>
+                <TotalRankingList rankings={monthlyRankings} />
               </div>
             </div>
 
-            <div className="max-w-4xl mx-auto w-full">
+            <div className="max-w-6xl mx-auto w-full">
               <SectionTitle subtitle="MONTHLY PROGRAM RANKING">月程式排名</SectionTitle>
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
                 {characters.map((char) => (
                   <motion.div 
                     key={char.name}
                     whileHover={{ y: -10 }}
                     onClick={() => setSelectedCharacter(char.name)}
-                    className={`relative group cursor-pointer rounded-xl overflow-hidden border-2 transition-all shadow-lg bg-slate-900/50 ${
+                    className={`relative group cursor-pointer rounded-xl overflow-hidden border-2 transition-all shadow-lg ${
                       selectedCharacter === char.name 
-                        ? 'border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.5)]' 
-                        : 'border-slate-800 hover:border-yellow-500/50'
+                        ? 'border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.5)] bg-slate-900/50' 
+                        : 'border-slate-800 hover:border-yellow-500/50 bg-white/80'
                     }`}
                   >
                     <img 
                       src={char.imageUrl} 
                       alt={char.name} 
                       className={`w-full h-auto block transition-all duration-500 ${
-                        selectedCharacter === char.name ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
+                        selectedCharacter === char.name ? 'scale-105 opacity-100' : 'scale-100 opacity-60 group-hover:scale-105 group-hover:opacity-100'
                       }`} 
                       referrerPolicy="no-referrer" 
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent transition-opacity duration-300 ${
-                      selectedCharacter === char.name ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'
+                    {/* Light overlay for unselected state */}
+                    <div className={`absolute inset-0 bg-white/40 transition-opacity duration-300 ${
+                      selectedCharacter === char.name ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
                     }`} />
-                    <div className="absolute bottom-2 right-3 text-right">
-                      <span className={`text-lg md:text-xl font-black italic tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)] transition-colors ${
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-300 ${
+                      selectedCharacter === char.name ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'
+                    }`} />
+                    <div className="absolute bottom-2 left-0 w-full px-1 text-center">
+                      <span className={`text-xs sm:text-sm md:text-sm lg:text-xs xl:text-sm font-black italic tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)] transition-colors ${
                         selectedCharacter === char.name ? 'text-yellow-400' : 'text-white group-hover:text-yellow-400'
                       }`}>
                         {char.name}
@@ -728,102 +1213,47 @@ export default function App() {
               </div>
             </div>
 
-            <div className="max-w-4xl mx-auto w-full mt-6">
-              <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-2xl text-black border-[3px] border-black">
-                <div className="text-center mb-6 border-b border-black/20 pb-4 relative flex items-center justify-center">
-                  <h3 className="text-4xl md:text-5xl font-black text-black uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>{selectedCharacter}</h3>
-                  <div className="absolute right-0 flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-200">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
-                    <span className="text-green-600 font-bold text-xs tracking-widest">LIVE</span>
+            <div className="max-w-6xl mx-auto w-full mt-6">
+              <div 
+                className="relative rounded-[2rem] p-8 md:p-12 shadow-2xl text-slate-900 border border-white/60"
+                style={{
+                  background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.5)'
+                }}
+              >
+                <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-[2rem]" style={{
+                  background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+                }}></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-6 border-b border-slate-300/50 pb-4 relative flex items-center justify-center gap-4">
+                    <img src={`/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`} alt={`${selectedCharacter} Coin`} className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-md" />
+                    <h3 className="text-4xl md:text-5xl font-black text-slate-800 uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>{selectedCharacter}</h3>
+                    <img src={`/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`} alt={`${selectedCharacter} Coin`} className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-md" />
+                    <div className="absolute right-0 flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+                      <span className="text-green-600 font-bold text-xs tracking-widest">LIVE</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col gap-1 md:gap-0 px-2 md:px-8">
-                  <AnimatePresence>
-                    {characterRankings.map((item) => (
-                      <motion.div 
-                        layout 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        key={item.id} 
-                        className="grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-3 md:gap-x-6 items-center py-2 md:py-1 hover:bg-slate-50 rounded-xl px-2 -mx-2 transition-colors duration-200 cursor-default border-b border-slate-100 last:border-0"
-                      >
-                        <div className="w-5 md:w-6 flex justify-center items-center">
-                          {item.rankChange === 'up' && (
-                            <svg width="24" height="24" viewBox="0 0 24 24" className="drop-shadow-sm">
-                              <polygon points="4,18 20,18 12,10" fill="#00ff00" />
-                            </svg>
-                          )}
-                          {item.rankChange === 'down' && (
-                            <svg width="24" height="24" viewBox="0 0 24 24" className="drop-shadow-sm">
-                              <polygon points="4,6 20,6 12,14" fill="#ff0000" />
-                            </svg>
-                          )}
-                          {item.rankChange === 'none' && (
-                            <div className="w-3 h-1 bg-slate-300 rounded-full"></div>
-                          )}
-                        </div>
-                        <span 
-                          className="text-4xl md:text-5xl font-black italic w-10 md:w-16 text-center leading-none" 
-                          style={{ 
-                            color: item.rank === 1 ? '#FFD700' : item.rank === 2 ? '#E3E3E3' : item.rank === 3 ? '#CD7F32' : '#888888',
-                            textShadow: '2px 2px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333, 1px 1px 0px #333',
-                            fontFamily: 'Impact, sans-serif'
-                          }}
-                        >
-                          {item.rank}
-                        </span>
-                        <span 
-                          className="text-2xl md:text-3xl font-black text-black tracking-widest uppercase text-left leading-none pl-2 md:pl-4"
-                        >
-                          {item.eaId.substring(0, 6).toUpperCase()}
-                        </span>
-                        <span 
-                          className="text-2xl md:text-3xl font-black text-black leading-none text-right opacity-80"
-                        >
-                          $
-                        </span>
-                        <span 
-                          className="text-2xl md:text-3xl font-black text-black tracking-tight text-right leading-none w-[140px] md:w-[180px] tabular-nums"
-                        >
-                          <AnimatedNumber value={item.amount} />
-                        </span>
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
+                  <div className="flex flex-col gap-1 md:gap-0 px-2 md:px-8">
+                    <EARankingList rankings={characterRankings} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Symbols Section */}
-        <section id="symbols">
-          <SectionTitle subtitle="TRADING ASSETS DISTRIBUTION">Most Used Symbols</SectionTitle>
-          <div className="max-w-4xl mx-auto flex flex-col items-center">
-            <div className="w-full max-w-[950px] rounded-2xl p-8 shadow-2xl relative overflow-x-auto" style={{
-              background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.5)'
-            }}>
-              {/* Add some abstract background shapes to match the image */}
-              <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none min-w-[850px]" style={{
-                background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
-              }}></div>
-              <div className="relative z-10 flex flex-col gap-1 min-w-[800px]">
-                {symbolsData.map((s) => (
-                  <motion.div layout transition={{ type: 'spring', stiffness: 300, damping: 30 }} key={s.symbol}>
-                    <SymbolProgress symbol={s.symbol} percentage={s.percentage} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <SymbolsSection symbolsData={symbolsData} />
 
         {/* Explore More Results */}
         <section id="more-results" className="grid grid-cols-1 md:grid-cols-2 gap-6 scroll-mt-24">
           <motion.button
             whileHover={{ scale: 1.02 }}
+            onClick={() => {
+              setCurrentPage('annual');
+              window.scrollTo(0, 0);
+            }}
             className="metallic-card rounded-2xl p-8 flex items-center justify-between group border border-yellow-500/20"
           >
             <div className="text-left">
@@ -835,6 +1265,10 @@ export default function App() {
 
           <motion.button
             whileHover={{ scale: 1.02 }}
+            onClick={() => {
+              setCurrentPage('monthly');
+              window.scrollTo(0, 0);
+            }}
             className="metallic-card rounded-2xl p-8 flex items-center justify-between group border border-yellow-500/20"
           >
             <div className="text-left">
@@ -984,6 +1418,11 @@ export default function App() {
         </section>
 
       </main>
+        </>
+      )}
+
+      {currentPage === 'annual' && <AnnualResults onBack={() => setCurrentPage('home')} symbolsData={symbolsData} />}
+      {currentPage === 'monthly' && <MonthlyResults onBack={() => setCurrentPage('home')} symbolsData={symbolsData} />}
 
       <footer className="text-center text-slate-600 font-mono text-[10px] uppercase tracking-[0.2em] py-10">
         © 2026 ACE FORTUNE CHAMPIONSHIP. ALL RIGHTS RESERVED.
