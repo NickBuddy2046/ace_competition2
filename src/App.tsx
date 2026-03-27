@@ -585,7 +585,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
                 {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-md opacity-50 rounded-full scale-125 animate-pulse"></div>}
                 {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-md opacity-50 rounded-full scale-110 animate-pulse"></div>}
                 {item.rank <= 10 ? (
-                  <img src={`/bg/toptenimage/tops${item.rank}.png?v=2`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} />
+                  <img src={`/bg/B${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} />
                 ) : (
                   <span className="font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif', fontSize: `${fontSize * 1.5}px` }}>{item.rank}</span>
                 )}
@@ -669,7 +669,7 @@ const EARankingList = ({ rankings, isStatic = false, compact = false }: { rankin
                 {!compact && item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-lg opacity-60 rounded-full scale-[1.5] sm:scale-[2] md:scale-[2.5] animate-pulse"></div>}
                 
                 <img 
-                  src={`/bg/toptenimage/tops${item.rank}.png?v=2`} 
+                  src={`/bg/B${item.rank}.png?v=1`} 
                   alt={`Rank ${item.rank}`} 
                   className={`relative z-10 object-contain drop-shadow-md transition-transform ${
                     compact 
