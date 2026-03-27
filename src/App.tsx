@@ -276,7 +276,7 @@ const PopupAd = ({ onClose }: { onClose: () => void }) => {
         >
           <X className="w-6 h-6" />
         </button>
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_20th_anniversery-600x425-English-GOMU.jpg" 
             alt="20th Anniversary Promotion" 
@@ -336,7 +336,7 @@ const SideAds = () => {
           transform: `translateY(${scrollOffset * 0.05}px)`
         }}
       >
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
@@ -354,7 +354,7 @@ const SideAds = () => {
           transform: `translateY(${scrollOffset * 0.05}px)`
         }}
       >
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
@@ -1032,7 +1032,7 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
 
       {/* Ad Banner - Below ALL EA RANKING */}
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
-        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
             src="/ibpromotion/Static_20th_anniversery-1016x180-English-GOMU.jpg" 
             alt="20th Anniversary" 
@@ -1045,7 +1045,7 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
 
       {/* Ad Banner - Above Explore More Buttons */}
       <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
-        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
@@ -1190,7 +1190,7 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
 
       {/* Ad Banner - 1016x180 (Above Most Used Symbols) */}
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
-        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
             src="/ibpromotion/Static_20th_anniversery-1016x180-English-GOMU.jpg" 
             alt="20th Anniversary" 
@@ -1203,7 +1203,7 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
 
       {/* Ad Banner - 1490x350 (Below Marquee) */}
       <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mt-8 sm:mt-12">
-        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+        <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
@@ -1607,7 +1607,7 @@ export default function App() {
 
         {/* Ad Banner - 1016x180 (Above Most Used Symbols) */}
         <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+          <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
             <img 
               src="/ibpromotion/Static_20th_anniversery-1016x180-English-GOMU.jpg" 
               alt="20th Anniversary" 
@@ -1620,7 +1620,7 @@ export default function App() {
 
         {/* Ad Banner - 1490x350 (Below Marquee) */}
         <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mt-8 sm:mt-12">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+          <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
             <img 
               src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
               alt="Catch the Golden Opportunity" 
