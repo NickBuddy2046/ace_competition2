@@ -1188,7 +1188,7 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
         </div>
       </section>
 
-      {/* Ad Banner - 1016x180 */}
+      {/* Ad Banner - 1016x180 (Above Most Used Symbols) */}
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
         <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
@@ -1199,8 +1199,10 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
         </a>
       </section>
 
-      {/* Ad Banner - 1490x350 */}
-      <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+      <SymbolsSection symbolsData={symbolsData} />
+
+      {/* Ad Banner - 1490x350 (Below Marquee) */}
+      <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mt-8 sm:mt-12">
         <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
@@ -1209,8 +1211,6 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
           />
         </a>
       </section>
-
-      <SymbolsSection symbolsData={symbolsData} />
     </main>
     </div>
     </>
@@ -1605,9 +1605,7 @@ export default function App() {
           </div>
         </section>
 
-        <SymbolsSection symbolsData={symbolsData} />
-
-        {/* Ad Banner - 1016x180 */}
+        {/* Ad Banner - 1016x180 (Above Most Used Symbols) */}
         <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
           <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
             <img 
@@ -1618,8 +1616,10 @@ export default function App() {
           </a>
         </section>
 
-        {/* Ad Banner - 1490x350 */}
-        <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <SymbolsSection symbolsData={symbolsData} />
+
+        {/* Ad Banner - 1490x350 (Below Marquee) */}
+        <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mt-8 sm:mt-12">
           <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
             <img 
               src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
@@ -1629,7 +1629,7 @@ export default function App() {
           </a>
         </section>
 
-        {/* Explore More Results */}
+        {/* Explore More Results -->
         <section id="more-results" className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 scroll-mt-24 px-2 sm:px-0">
           <motion.button
             whileHover={{ scale: 1.02 }}
