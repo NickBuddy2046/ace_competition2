@@ -1156,25 +1156,10 @@ export default function App() {
   const [symbolsData, setSymbolsData] = useState<SymbolItem[]>(symbols);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [cw, setCw] = useState(10); // Default 1% of container width
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
-  // Popup Ad Timer
-  useEffect(() => {
-    // Show popup after 5 seconds
-    const initialTimer = setTimeout(() => {
-      setShowPopup(true);
-    }, 5000);
-
-    // Show popup every 60 seconds
-    const interval = setInterval(() => {
-      setShowPopup(true);
-    }, 60000);
-
-    return () => {
-      clearTimeout(initialTimer);
-      clearInterval(interval);
-    };
-  }, []);
+  // Popup shows on every page refresh/navigation
+  // No timer - user must close it manually
 
   useEffect(() => {
     // Generate dummy data based on the selected character
