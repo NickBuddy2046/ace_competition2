@@ -429,19 +429,19 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
   const dropdownItem = "block w-full text-left px-4 py-2 text-sm font-bold text-white hover:text-yellow-500 hover:bg-white/5 transition-colors whitespace-nowrap";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-yellow-500/10 px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-yellow-500/10 px-6 py-5">
       <div className="max-w-7xl mx-auto flex items-center">
         {/* Logo */}
         <div className="flex-1 flex justify-start">
-          <div className="cursor-pointer max-w-[120px] sm:max-w-[140px] md:max-w-[160px]" onClick={() => scrollTo('home')}>
-            <img src="/bg/ACE Fortune Logo B1a.png?v=3" alt="ACE Fortune Logo" className="h-7 sm:h-8 md:h-9 w-full object-contain" />
+          <div className="cursor-pointer max-w-[140px] sm:max-w-[170px] md:max-w-[200px]" onClick={() => scrollTo('home')}>
+            <img src="/bg/ACE Fortune Logo B1a.png?v=3" alt="ACE Fortune Logo" className="h-8 sm:h-10 md:h-12 w-full object-contain" />
           </div>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {/* Home */}
-          <button onClick={() => scrollTo('home')} className={currentPage === 'home' ? activeBtn : navBtn}>
+          <button onClick={() => scrollTo('home')} className={`${currentPage === 'home' ? activeBtn : navBtn} text-lg`}>
             Home
           </button>
 
@@ -449,39 +449,36 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
           <div className="relative">
             <button
               onClick={() => { setLeaderboardOpen(o => !o); setResultsOpen(false); }}
-              className={`${navBtn} flex items-center gap-1`}
+              className={`${navBtn} flex items-center gap-1 text-lg`}
             >
               Leaderboard
-              <ChevronRight className={`w-3 h-3 transition-transform ${leaderboardOpen ? 'rotate-90' : 'rotate-0'}`} />
+              <ChevronRight className={`w-4 h-4 transition-transform ${leaderboardOpen ? 'rotate-90' : 'rotate-0'}`} />
             </button>
             {leaderboardOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-black border border-yellow-500/20 rounded-xl shadow-2xl py-1 min-w-[220px]">
-                <button onClick={() => scrollTo('月總排名')} className={dropdownItem}>月總排名</button>
-                <button onClick={() => scrollTo('月程式排名')} className={dropdownItem}>月程式排名</button>
-                <button onClick={() => scrollTo('symbols')} className={dropdownItem}>Most Used Symbols</button>
+              <div className="absolute top-full left-0 mt-2 bg-black border border-yellow-500/20 rounded-xl shadow-2xl py-1 min-w-[240px]">
+                <button onClick={() => scrollTo('月總排名')} className={`${dropdownItem} text-base py-3`}>月總排名</button>
+                <button onClick={() => scrollTo('月程式排名')} className={`${dropdownItem} text-base py-3`}>月程式排名</button>
+                <button onClick={() => scrollTo('symbols')} className={`${dropdownItem} text-base py-3`}>Most Used Symbols</button>
               </div>
             )}
           </div>
 
-          {/* Results dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => { setResultsOpen(o => !o); setLeaderboardOpen(false); }}
-              className={`${currentPage === 'annual' || currentPage === 'monthly' ? activeBtn : navBtn} flex items-center gap-1`}
-            >
-              Results
-              <ChevronRight className={`w-3 h-3 transition-transform ${resultsOpen ? 'rotate-90' : 'rotate-0'}`} />
-            </button>
-            {resultsOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-black border border-yellow-500/20 rounded-xl shadow-2xl py-1 min-w-[180px]">
-                <button onClick={() => goTo('annual', 'annual-results')} className={dropdownItem}>Annual Results</button>
-                <button onClick={() => goTo('monthly', 'monthly-results')} className={dropdownItem}>Monthly Results</button>
-              </div>
-            )}
-          </div>
+          {/* Results - Direct buttons */}
+          <button 
+            onClick={() => goTo('annual', 'annual-results')} 
+            className={`${currentPage === 'annual' ? activeBtn : navBtn} text-lg`}
+          >
+            Annual Results
+          </button>
+          <button 
+            onClick={() => goTo('monthly', 'monthly-results')} 
+            className={`${currentPage === 'monthly' ? activeBtn : navBtn} text-lg`}
+          >
+            Monthly Results
+          </button>
 
           {/* 官方比賽細則 */}
-          <button onClick={() => scrollTo('rules')} className={navBtn}>官方比賽細則</button>
+          <button onClick={() => scrollTo('rules')} className={`${navBtn} text-lg`}>官方比賽細則</button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -496,44 +493,39 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
 
         {/* Social Icons - Desktop Only */}
         <div className="hidden md:flex flex-1 justify-end items-center gap-6">
-          <a href="https://www.facebook.com/acefortuneresearch" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-          <a href="https://www.instagram.com/ace_fortune_research/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+          <a href="https://www.facebook.com/acefortuneresearch" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Facebook className="w-6 h-6" /></a>
+          <a href="https://www.instagram.com/ace_fortune_research/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Instagram className="w-6 h-6" /></a>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-yellow-500/20 shadow-2xl py-4 px-6">
-          <div className="flex flex-col gap-4">
-            <button onClick={() => { scrollTo('home'); setMobileMenuOpen(false); }} className={currentPage === 'home' ? activeBtn : navBtn}>
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-yellow-500/20 shadow-2xl py-6 px-6">
+          <div className="flex flex-col gap-5">
+            <button onClick={() => { scrollTo('home'); setMobileMenuOpen(false); }} className={`${currentPage === 'home' ? activeBtn : navBtn} text-lg py-3`}>
               Home
             </button>
-            <button onClick={() => { scrollTo('月總排名'); setMobileMenuOpen(false); }} className={navBtn}>
+            <button onClick={() => { scrollTo('月總排名'); setMobileMenuOpen(false); }} className={`${navBtn} text-lg py-3`}>
               月總排名
             </button>
-            <button onClick={() => { scrollTo('月程式排名'); setMobileMenuOpen(false); }} className={navBtn}>
+            <button onClick={() => { scrollTo('月程式排名'); setMobileMenuOpen(false); }} className={`${navBtn} text-lg py-3`}>
               月程式排名
             </button>
-            <button onClick={() => { scrollTo('symbols'); setMobileMenuOpen(false); }} className={navBtn}>
+            <button onClick={() => { scrollTo('symbols'); setMobileMenuOpen(false); }} className={`${navBtn} text-lg py-3`}>
               Most Used Symbols
             </button>
-            <div className="border-t border-yellow-500/20 pt-4 mt-2">
-              <p className="text-yellow-500/60 text-xs font-bold mb-2 uppercase tracking-wider">Results</p>
-              <div className="flex flex-col gap-3">
-                <button onClick={() => { goTo('annual', 'annual-results'); setMobileMenuOpen(false); }} className={navBtn}>
-                  Annual Results
-                </button>
-                <button onClick={() => { goTo('monthly', 'monthly-results'); setMobileMenuOpen(false); }} className={navBtn}>
-                  Monthly Results
-                </button>
-              </div>
-            </div>
-            <button onClick={() => { scrollTo('rules'); setMobileMenuOpen(false); }} className={navBtn}>
+            <button onClick={() => { goTo('annual', 'annual-results'); setMobileMenuOpen(false); }} className={`${currentPage === 'annual' ? activeBtn : navBtn} text-lg py-3`}>
+              Annual Results
+            </button>
+            <button onClick={() => { goTo('monthly', 'monthly-results'); setMobileMenuOpen(false); }} className={`${currentPage === 'monthly' ? activeBtn : navBtn} text-lg py-3`}>
+              Monthly Results
+            </button>
+            <button onClick={() => { scrollTo('rules'); setMobileMenuOpen(false); }} className={`${navBtn} text-lg py-3`}>
               官方比賽細則
             </button>
-            <div className="flex items-center gap-4 pt-4 border-t border-yellow-500/20">
-              <a href="https://www.facebook.com/acefortuneresearch" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="https://www.instagram.com/ace_fortune_research/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+            <div className="flex items-center gap-5 pt-5 border-t border-yellow-500/20">
+              <a href="https://www.facebook.com/acefortuneresearch" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Facebook className="w-6 h-6" /></a>
+              <a href="https://www.instagram.com/ace_fortune_research/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Instagram className="w-6 h-6" /></a>
             </div>
           </div>
         </div>
