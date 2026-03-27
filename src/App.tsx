@@ -368,7 +368,6 @@ const SideAds = () => {
 
 const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurrentPage: (page: 'home' | 'annual' | 'monthly') => void }) => {
   const [leaderboardOpen, setLeaderboardOpen] = useState(false);
-  const [resultsOpen, setResultsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -439,7 +438,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {/* Home */}
           <button onClick={() => scrollTo('home')} className={`${currentPage === 'home' ? activeBtn : navBtn} text-lg`}>
             Home
@@ -448,7 +447,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
           {/* Leaderboard dropdown */}
           <div className="relative">
             <button
-              onClick={() => { setLeaderboardOpen(o => !o); setResultsOpen(false); }}
+              onClick={() => setLeaderboardOpen(o => !o)}
               className={`${navBtn} flex items-center gap-1 text-lg`}
             >
               Leaderboard
@@ -482,7 +481,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden flex-1 justify-end">
+        <div className="flex lg:hidden flex-1 justify-end">
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-yellow-500 hover:text-white transition-colors p-2"
@@ -492,7 +491,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
         </div>
 
         {/* Social Icons - Desktop Only */}
-        <div className="hidden md:flex flex-1 justify-end items-center gap-6">
+        <div className="hidden lg:flex flex-1 justify-end items-center gap-6">
           <a href="https://www.facebook.com/acefortuneresearch" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Facebook className="w-6 h-6" /></a>
           <a href="https://www.instagram.com/ace_fortune_research/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-white transition-colors"><Instagram className="w-6 h-6" /></a>
         </div>
@@ -500,7 +499,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-yellow-500/20 shadow-2xl py-6 px-6">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-black border-b border-yellow-500/20 shadow-2xl py-6 px-6">
           <div className="flex flex-col gap-5">
             <button onClick={() => { scrollTo('home'); setMobileMenuOpen(false); }} className={`${currentPage === 'home' ? activeBtn : navBtn} text-lg py-3`}>
               Home
@@ -532,8 +531,8 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
       )}
 
       {/* Close dropdowns on outside click */}
-      {(leaderboardOpen || resultsOpen || mobileMenuOpen) && (
-        <div className="fixed inset-0 z-[-1]" onClick={() => { setLeaderboardOpen(false); setResultsOpen(false); setMobileMenuOpen(false); }} />
+      {(leaderboardOpen || mobileMenuOpen) && (
+        <div className="fixed inset-0 z-[-1]" onClick={() => { setLeaderboardOpen(false); setMobileMenuOpen(false); }} />
       )}
     </nav>
   );
