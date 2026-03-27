@@ -468,12 +468,14 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
             </button>
             <div className="border-t border-yellow-500/20 pt-4 mt-2">
               <p className="text-yellow-500/60 text-xs font-bold mb-2 uppercase tracking-wider">Results</p>
-              <button onClick={() => { goTo('annual', 'annual-results'); setMobileMenuOpen(false); }} className={navBtn}>
-                Annual Results
-              </button>
-              <button onClick={() => { goTo('monthly', 'monthly-results'); setMobileMenuOpen(false); }} className={navBtn}>
-                Monthly Results
-              </button>
+              <div className="flex flex-col gap-3">
+                <button onClick={() => { goTo('annual', 'annual-results'); setMobileMenuOpen(false); }} className={navBtn}>
+                  Annual Results
+                </button>
+                <button onClick={() => { goTo('monthly', 'monthly-results'); setMobileMenuOpen(false); }} className={navBtn}>
+                  Monthly Results
+                </button>
+              </div>
             </div>
             <button onClick={() => { scrollTo('rules'); setMobileMenuOpen(false); }} className={navBtn}>
               官方比賽細則
@@ -561,7 +563,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
             </div>
 
             {/* EA Coins + 能量條 - 自動填充剩餘空間 */}
-            <div className="flex-1 flex flex-col justify-center min-w-0" style={{ paddingLeft: '6px', paddingRight: '6px', gap: '2px' }}>
+            <div className="flex-1 flex flex-col justify-center min-w-[80px] sm:min-w-0" style={{ paddingLeft: '6px', paddingRight: '6px', gap: '2px' }}>
               <div className="flex items-center" style={{ gap: '2px' }}>
                 {[...item.eaBreakdown]
                   .sort((a, b) => b.percentage - a.percentage)
@@ -1378,11 +1380,11 @@ export default function App() {
       {currentPage === 'home' && (
         <>
           {/* Top Banner Image */}
-          <div className="w-full bg-black">
+          <div className="w-full bg-black overflow-hidden">
             <img 
               src="/bg/ACE _topbanner.png" 
               alt="ACE Championship Banner" 
-              className="w-full h-auto block"
+              className="w-full h-auto block object-cover object-center max-h-[50vh] sm:max-h-none"
             />
           </div>
 

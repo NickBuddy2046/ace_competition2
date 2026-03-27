@@ -1,0 +1,503 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - img "ACE Fortune Logo" [ref=e8] [cursor=pointer]
+      - button [ref=e10]:
+        - img [ref=e11]
+  - img "ACE Championship Banner" [ref=e13]
+  - heading "LEADERBOARD" [level=1] [ref=e15]
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: Prize Pool
+          - generic [ref=e23]:
+            - generic [ref=e24]: $
+            - generic [ref=e25]: 100,000
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - img [ref=e28]
+            - generic [ref=e30]: June 01 - June 30, 2026
+          - generic [ref=e32]: No Entry Fee
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e37]: REAL-TIME LEADERBOARD
+          - generic [ref=e39]:
+            - heading "月總排名" [level=2] [ref=e40]
+            - paragraph [ref=e41]: MONTHLY TOTAL RANKING
+          - generic [ref=e44]:
+            - generic [ref=e68]:
+              - img "Rank 1" [ref=e1008]
+              - img [ref=e1009]
+              - generic [ref=e75]: TRADER
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - img "PHOENIX" [ref=e79]
+                  - generic: PHOENIX
+                - generic [ref=e80]:
+                  - img "COBRA" [ref=e81]
+                  - generic: COBRA
+              - generic [ref=e90]: $ 184,414.23
+            - generic [ref=e45]:
+              - img "Rank 2" [ref=e1011]
+              - img [ref=e1012]
+              - generic [ref=e52]: ALEX99
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - img "KIRIN" [ref=e56]
+                  - generic: KIRIN
+                - generic [ref=e57]:
+                  - img "PHOENIX" [ref=e58]
+                  - generic: PHOENIX
+              - generic [ref=e67]: $ 170,862.85
+            - generic [ref=e114]:
+              - img "Rank 3" [ref=e1014]
+              - img [ref=e1057]
+              - generic [ref=e120]: BULLRN
+              - generic [ref=e123]:
+                - img "LOTTO" [ref=e124]
+                - generic: LOTTO
+              - generic [ref=e131]: $ 137,196.85
+            - generic [ref=e176]:
+              - img "Rank 4" [ref=e1018]
+              - img [ref=e1058]
+              - generic [ref=e182]: SNIPER
+              - generic [ref=e184]:
+                - generic [ref=e185]:
+                  - img "WIZARD" [ref=e186]
+                  - generic: WIZARD
+                - generic [ref=e187]:
+                  - img "KIRIN" [ref=e188]
+                  - generic: KIRIN
+              - generic [ref=e197]: $ 136,972.31
+            - generic [ref=e91]:
+              - img "Rank 5" [ref=e1022]
+              - img [ref=e1059]
+              - generic [ref=e98]: CRYPTO
+              - generic [ref=e100]:
+                - generic [ref=e101]:
+                  - img "COBRA" [ref=e102]
+                  - generic: COBRA
+                - generic [ref=e103]:
+                  - img "LOTTO" [ref=e104]
+                  - generic: LOTTO
+              - generic [ref=e113]: $ 136,300.11
+            - generic [ref=e132]:
+              - img "Rank 6" [ref=e1026]
+              - img [ref=e1027]
+              - generic [ref=e138]: MOONBY
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - img "BUBO" [ref=e142]
+                  - generic: BUBO
+                - generic [ref=e143]:
+                  - img "FALCON" [ref=e144]
+                  - generic: FALCON
+              - generic [ref=e153]: $ 116,650.71
+            - generic [ref=e154]:
+              - img "Rank 7" [ref=e938]
+              - img [ref=e1028]
+              - generic [ref=e160]: WHALE1
+              - generic [ref=e162]:
+                - generic [ref=e163]:
+                  - img "FALCON" [ref=e164]
+                  - generic: FALCON
+                - generic [ref=e165]:
+                  - img "WIZARD" [ref=e166]
+                  - generic: WIZARD
+              - generic [ref=e175]: $ 112,843.21
+            - generic [ref=e224]:
+              - img "Rank 8" [ref=e1060]
+              - img [ref=e1061]
+              - generic [ref=e230]: ALPHA
+              - generic [ref=e233]:
+                - img "PHOENIX" [ref=e234]
+                - generic: PHOENIX
+              - generic [ref=e241]: $ 108,082.27
+            - generic [ref=e242]:
+              - img "Rank 9" [ref=e1064]
+              - img [ref=e1065]
+              - generic [ref=e248]: OMEGA
+              - generic [ref=e250]:
+                - generic [ref=e251]:
+                  - img "COBRA" [ref=e252]
+                  - generic: COBRA
+                - generic [ref=e253]:
+                  - img "LOTTO" [ref=e254]
+                  - generic: LOTTO
+              - generic [ref=e263]: $ 104,800.89
+            - generic [ref=e198]:
+              - img "Rank 10" [ref=e1033]
+              - img [ref=e1034]
+              - generic [ref=e204]: PROBOT
+              - generic [ref=e206]:
+                - generic [ref=e207]:
+                  - img "KIRIN" [ref=e208]
+                  - generic: KIRIN
+                - generic [ref=e209]:
+                  - img "PHOENIX" [ref=e210]
+                  - generic: PHOENIX
+                - generic [ref=e211]:
+                  - img "COBRA" [ref=e212]
+                  - generic: COBRA
+              - generic [ref=e223]: $ 100,172.05
+        - generic [ref=e264]:
+          - generic [ref=e266]:
+            - heading "月程式排名" [level=2] [ref=e267]
+            - paragraph [ref=e268]: MONTHLY PROGRAM RANKING
+          - generic [ref=e270]:
+            - generic [ref=e271] [cursor=pointer]:
+              - img "KIRIN" [ref=e272]
+              - generic [ref=e274]: KIRIN
+            - generic [ref=e275] [cursor=pointer]:
+              - img "PHOENIX" [ref=e276]
+              - generic [ref=e278]: PHOENIX
+            - generic [ref=e279] [cursor=pointer]:
+              - img "COBRA" [ref=e280]
+              - generic [ref=e282]: COBRA
+            - generic [ref=e283] [cursor=pointer]:
+              - img "LOTTO" [ref=e284]
+              - generic [ref=e286]: LOTTO
+            - generic [ref=e287] [cursor=pointer]:
+              - img "BUBO" [ref=e288]
+              - generic [ref=e290]: BUBO
+            - generic [ref=e291] [cursor=pointer]:
+              - img "FALCON" [ref=e292]
+              - generic [ref=e294]: FALCON
+            - generic [ref=e295] [cursor=pointer]:
+              - img "PYTHON" [ref=e296]
+              - generic [ref=e298]: PYTHON
+            - generic [ref=e299] [cursor=pointer]:
+              - img "WIZARD" [ref=e300]
+              - generic [ref=e302]: WIZARD
+          - generic [ref=e304]:
+            - generic [ref=e305]:
+              - img "KIRIN Coin" [ref=e306]
+              - heading "KIRIN" [level=3] [ref=e307]
+              - img "KIRIN Coin" [ref=e308]
+              - generic [ref=e311]: LIVE
+            - generic [ref=e313]:
+              - generic [ref=e314]:
+                - img "Rank 1" [ref=e317]
+                - img [ref=e1035]
+                - generic [ref=e321]: WHALE1
+                - generic [ref=e322]: $
+                - generic [ref=e323]: 101,683.00
+              - generic [ref=e374]:
+                - img "Rank 2" [ref=e1068]
+                - img [ref=e1069]
+                - generic [ref=e381]: TRADER
+                - generic [ref=e382]: $
+                - generic [ref=e383]: 100,902.84
+              - generic [ref=e334]:
+                - img "Rank 3" [ref=e1072]
+                - img [ref=e1073]
+                - generic [ref=e341]: PROBOT
+                - generic [ref=e342]: $
+                - generic [ref=e343]: 100,805.00
+              - generic [ref=e394]:
+                - img "Rank 4" [ref=e1076]
+                - img [ref=e1077]
+                - generic [ref=e401]: CRYPTO
+                - generic [ref=e402]: $
+                - generic [ref=e403]: 98,731.94
+              - generic [ref=e384]:
+                - img "Rank 5" [ref=e1080]
+                - img [ref=e1081]
+                - generic [ref=e391]: BULLRN
+                - generic [ref=e392]: $
+                - generic [ref=e393]: 98,713.26
+              - generic [ref=e364]:
+                - img "Rank 6" [ref=e1084]
+                - img [ref=e1085]
+                - generic [ref=e371]: ALEX99
+                - generic [ref=e372]: $
+                - generic [ref=e373]: 98,678.00
+              - generic [ref=e354]:
+                - img "Rank 7" [ref=e1045]
+                - img [ref=e1088]
+                - generic [ref=e361]: ALPHA
+                - generic [ref=e362]: $
+                - generic [ref=e363]: 97,858.02
+              - generic [ref=e404]:
+                - img "Rank 8" [ref=e1089]
+                - img [ref=e1090]
+                - generic [ref=e411]: MOONBY
+                - generic [ref=e412]: $
+                - generic [ref=e413]: 97,759.93
+              - generic [ref=e324]:
+                - img "Rank 9" [ref=e1049]
+                - img [ref=e1050]
+                - generic [ref=e331]: SNIPER
+                - generic [ref=e332]: $
+                - generic [ref=e333]: 97,180.00
+              - generic [ref=e344]:
+                - img "Rank 10" [ref=e1051]
+                - img [ref=e1052]
+                - generic [ref=e351]: OMEGA
+                - generic [ref=e352]: $
+                - generic [ref=e353]: 96,349.00
+    - generic [ref=e414]:
+      - generic [ref=e415]:
+        - heading "Most Used Symbols" [level=2] [ref=e416]
+        - paragraph [ref=e417]: TRADING ASSETS DISTRIBUTION
+      - generic [ref=e421]:
+        - generic [ref=e423]:
+          - generic [ref=e424]: BTCUSD
+          - generic [ref=e446]: 098.0%
+        - generic [ref=e448]:
+          - generic [ref=e449]: XAUUSD
+          - generic [ref=e471]: 084.8%
+        - generic [ref=e473]:
+          - generic [ref=e474]: ETHUSD
+          - generic [ref=e496]: 072.9%
+        - generic [ref=e498]:
+          - generic [ref=e499]: SOLUSD
+          - generic [ref=e521]: 061.7%
+        - generic [ref=e523]:
+          - generic [ref=e524]: USDCAD
+          - generic [ref=e546]: 049.9%
+        - generic [ref=e548]:
+          - generic [ref=e549]: GBPNZD
+          - generic [ref=e571]: 029.2%
+        - generic [ref=e573]:
+          - generic [ref=e574]: TRUMP
+          - generic [ref=e596]: 026.0%
+        - generic [ref=e598]:
+          - generic [ref=e599]: EURSGD
+          - generic [ref=e621]: 022.2%
+        - generic [ref=e623]:
+          - generic [ref=e624]: GBPAUD
+          - generic [ref=e646]: 010.0%
+        - generic [ref=e648]:
+          - generic [ref=e649]: Other
+          - generic [ref=e671]: 001.3%
+      - generic [ref=e672]:
+        - generic [ref=e674]:
+          - img "EA Bit" [ref=e675]
+          - img "EA Bit" [ref=e676]
+          - img "EA Bit" [ref=e677]
+          - img "EA Bit" [ref=e678]
+          - img "EA Bit" [ref=e679]
+          - img "EA Bit" [ref=e680]
+          - img "EA Bit" [ref=e681]
+          - img "EA Bit" [ref=e682]
+          - img "EA Bit" [ref=e683]
+          - img "EA Bit" [ref=e684]
+          - img "EA Bit" [ref=e685]
+          - img "EA Bit" [ref=e686]
+          - img "EA Bit" [ref=e687]
+          - img "EA Bit" [ref=e688]
+          - img "EA Bit" [ref=e689]
+          - img "EA Bit" [ref=e690]
+          - img "EA Bit" [ref=e691]
+          - img "EA Bit" [ref=e692]
+          - img "EA Bit" [ref=e693]
+          - img "EA Bit" [ref=e694]
+          - img "EA Bit" [ref=e695]
+          - img "EA Bit" [ref=e696]
+          - img "EA Bit" [ref=e697]
+          - img "EA Bit" [ref=e698]
+          - img "EA Bit" [ref=e699]
+          - img "EA Bit" [ref=e700]
+          - img "EA Bit" [ref=e701]
+          - img "EA Bit" [ref=e702]
+          - img "EA Bit" [ref=e703]
+          - img "EA Bit" [ref=e704]
+          - img "EA Bit" [ref=e705]
+          - img "EA Bit" [ref=e706]
+          - img "EA Bit" [ref=e707]
+          - img "EA Bit" [ref=e708]
+          - img "EA Bit" [ref=e709]
+          - img "EA Bit" [ref=e710]
+          - img "EA Bit" [ref=e711]
+          - img "EA Bit" [ref=e712]
+          - img "EA Bit" [ref=e713]
+          - img "EA Bit" [ref=e714]
+          - img "EA Bit" [ref=e715]
+          - img "EA Bit" [ref=e716]
+          - img "EA Bit" [ref=e717]
+          - img "EA Bit" [ref=e718]
+        - generic [ref=e719]:
+          - generic [ref=e720]:
+            - paragraph [ref=e722]: Total Volume(Lots)
+            - heading "48,710.57" [level=4] [ref=e1091]
+          - generic [ref=e724]:
+            - paragraph [ref=e726]: Total Participants
+            - heading "323" [level=4] [ref=e1092]
+          - generic [ref=e728]:
+            - paragraph [ref=e730]: Total Orders
+            - heading "18,749" [level=4] [ref=e1093]
+          - generic [ref=e732]:
+            - paragraph [ref=e734]: Total Profit
+            - heading "$ 1,308,284.67" [level=4] [ref=e1094]
+        - generic [ref=e737]:
+          - img "EA Bit" [ref=e738]
+          - img "EA Bit" [ref=e739]
+          - img "EA Bit" [ref=e740]
+          - img "EA Bit" [ref=e741]
+          - img "EA Bit" [ref=e742]
+          - img "EA Bit" [ref=e743]
+          - img "EA Bit" [ref=e744]
+          - img "EA Bit" [ref=e745]
+          - img "EA Bit" [ref=e746]
+          - img "EA Bit" [ref=e747]
+          - img "EA Bit" [ref=e748]
+          - img "EA Bit" [ref=e749]
+          - img "EA Bit" [ref=e750]
+          - img "EA Bit" [ref=e751]
+          - img "EA Bit" [ref=e752]
+          - img "EA Bit" [ref=e753]
+          - img "EA Bit" [ref=e754]
+          - img "EA Bit" [ref=e755]
+          - img "EA Bit" [ref=e756]
+          - img "EA Bit" [ref=e757]
+          - img "EA Bit" [ref=e758]
+          - img "EA Bit" [ref=e759]
+          - img "EA Bit" [ref=e760]
+          - img "EA Bit" [ref=e761]
+          - img "EA Bit" [ref=e762]
+          - img "EA Bit" [ref=e763]
+          - img "EA Bit" [ref=e764]
+          - img "EA Bit" [ref=e765]
+          - img "EA Bit" [ref=e766]
+          - img "EA Bit" [ref=e767]
+          - img "EA Bit" [ref=e768]
+          - img "EA Bit" [ref=e769]
+          - img "EA Bit" [ref=e770]
+          - img "EA Bit" [ref=e771]
+          - img "EA Bit" [ref=e772]
+          - img "EA Bit" [ref=e773]
+          - img "EA Bit" [ref=e774]
+          - img "EA Bit" [ref=e775]
+          - img "EA Bit" [ref=e776]
+          - img "EA Bit" [ref=e777]
+          - img "EA Bit" [ref=e778]
+          - img "EA Bit" [ref=e779]
+          - img "EA Bit" [ref=e780]
+          - img "EA Bit" [ref=e781]
+    - generic [ref=e782]:
+      - button "EXPLORE MORE 年度成績 ANNUAL RESULTS" [ref=e783]:
+        - generic [ref=e784]:
+          - paragraph [ref=e785]: EXPLORE MORE
+          - heading "年度成績 ANNUAL RESULTS" [level=3] [ref=e786]
+        - img [ref=e787]
+      - button "EXPLORE MORE 月度成績 MONTHLY RESULTS" [ref=e789]:
+        - generic [ref=e790]:
+          - paragraph [ref=e791]: EXPLORE MORE
+          - heading "月度成績 MONTHLY RESULTS" [level=3] [ref=e792]
+        - img [ref=e793]
+    - generic [ref=e795]:
+      - generic [ref=e796]:
+        - heading "《ACE明星大亂鬥2026》" [level=2] [ref=e797]
+        - heading "官方比賽細則" [level=2] [ref=e798]
+        - heading "由 ACE FORTUNE 全力贊助與主辦" [level=2] [ref=e799]
+      - generic [ref=e800]:
+        - generic [ref=e801]:
+          - generic [ref=e802]:
+            - img [ref=e803]
+            - heading "【 比賽宗旨 】" [level=3] [ref=e805]
+          - generic [ref=e806]:
+            - text: 為鼓勵學員透過實戰，提升各種EA策略運用技巧，互相觀摩、交流操作手法， ACE 將舉辦《ACE EA明星大亂鬥2026》，以程式交易實力一較高下，角逐豐厚獎金及「EA王者」榮譽稱號。
+            - text: 本次活動無需任何報名費，旨在推動實戰操作與技術交流。
+        - generic [ref=e807]:
+          - generic [ref=e808]:
+            - img [ref=e809]
+            - heading "【 首輪比賽日期 】" [level=3] [ref=e812]
+          - generic [ref=e814]:
+            - paragraph [ref=e815]: 2026年5月1日（00:00）至5月31日（23:59）｜以系統時間為準
+            - paragraph [ref=e816]: ※ 比賽期間可中途加入，惟開始越早，排名優勢越高。
+            - paragraph [ref=e817]: ※ 只會計算比賽期間內的 EA 開單與平倉單。(其他訂單不會計算)
+            - generic [ref=e818]:
+              - generic [ref=e819]:
+                - paragraph [ref=e820]: STARTED
+                - generic [ref=e821]:
+                  - generic [ref=e822]:
+                    - generic [ref=e823]: "00"
+                    - generic [ref=e824]: Days
+                  - generic [ref=e825]:
+                    - generic [ref=e826]: "00"
+                    - generic [ref=e827]: Hours
+                  - generic [ref=e828]:
+                    - generic [ref=e829]: "00"
+                    - generic [ref=e830]: Minutes
+                  - generic [ref=e831]:
+                    - generic [ref=e832]: "00"
+                    - generic [ref=e833]: Seconds
+              - generic [ref=e834]:
+                - paragraph [ref=e835]: Will end in
+                - generic [ref=e836]:
+                  - generic [ref=e837]:
+                    - generic [ref=e838]: "65"
+                    - generic [ref=e839]: Days
+                  - generic [ref=e840]:
+                    - generic [ref=e841]: "11"
+                    - generic [ref=e842]: Hours
+                  - generic [ref=e843]:
+                    - generic [ref=e844]: "42"
+                    - generic [ref=e845]: Minutes
+                  - generic [ref=e846]:
+                    - generic [ref=e847]: "31"
+                    - generic [ref=e848]: Seconds
+      - generic [ref=e849]:
+        - generic [ref=e850]:
+          - generic [ref=e851]:
+            - img [ref=e852]
+            - heading "【 參加方法 】" [level=3] [ref=e857]
+          - generic [ref=e858]: 凡使用 ACE Fortune EA 操作，即自動視為報名參賽 (不論任何版本) 成績將自動登錄至比賽即時排行榜系統，並於參賽者帳號的圖表中實時顯示
+        - generic [ref=e859]:
+          - generic [ref=e860]:
+            - img [ref=e861]
+            - heading "【 參賽資格 】" [level=3] [ref=e864]
+          - list [ref=e866]:
+            - listitem [ref=e867]: 所有 ACE Fortune AI CAD 在籍學生均可參與
+            - listitem [ref=e868]: 必須使用 實盤 LIVE Standard 帳戶 (不接受 DEMO、CENT、美分帳戶、RAW、ECN等，任何非標準實盤將自動除名)
+            - listitem [ref=e869]: 無參賽帳戶上限，但必須為已登記 AI CAD 團體福利的帳戶
+            - listitem [ref=e870]: Ace Fortune 工作人員或導師均可參加，但不予競逐獎項，如有得獎將順延至其他參賽者
+        - generic [ref=e871]:
+          - generic [ref=e872]:
+            - img [ref=e873]
+            - heading "【 比賽規則與公平性聲明 】" [level=3] [ref=e875]
+          - paragraph [ref=e877]: 本比賽由 Ace Fortune 主辦，負責獎金、獎品、評審與頒獎活動等全程支援。 整個比賽過程將以公開、透明、公正 原則執行，排名可透過比賽平時即時 查詢。 比賽期間嚴禁作弊、假帳號交易、人為干預紀錄等行為，一經發現，將即時取消資格並不作另行通知。
+        - generic [ref=e878]:
+          - generic [ref=e879]:
+            - img [ref=e880]
+            - heading "【 獎勵與表揚機制 】" [level=3] [ref=e883]
+          - generic [ref=e885]:
+            - paragraph [ref=e886]: ● 第一輪 (5月賽季) 成績將作為日後可能延伸的【 年度聯賽 】累計成績
+            - paragraph [ref=e887]: ● 賽事結束後約兩個月內 舉行頒獎典禮，邀請得獎者親臨現場領獎
+            - paragraph [ref=e888]: ● 得獎者需準備 不少於5分鐘的操作分享 PPT ( 或影片 )，進行現場或線上播放
+            - paragraph [ref=e889]: ● 若無法出席頒獎活動，將視作放棄得獎資格，由排名次一者遞補 ( 海外得獎者可預先錄製分享影片 )
+            - generic [ref=e890]:
+              - paragraph [ref=e891]: ● 【 金牌霸主 】 — 終極EA王者榮耀 HKD 28000 + 1個月會期
+              - paragraph [ref=e892]: 總盈利金額最高者 榮登排行榜之首，真正的 EA 操盤之神！
+              - paragraph [ref=e893]: ● 【 銀色勇者 】 — 攻守兼備的準王者 HKD 12000 + 1個月會期
+              - paragraph [ref=e894]: 總盈利金額排名第二 靠實力穩紮穩打，貼身緊咬頂尖高手！
+              - paragraph [ref=e895]: ● 【 銅幣精英 】 — 穩健突進的潛力王者 HKD 5000 + 1個月會期
+              - paragraph [ref=e896]: 總盈利金額排名第三 靈活操作、嚴守紀律，是市場中的黑馬！
+              - paragraph [ref=e897]: ● 【 倍化霸主 】 — 以小博大的獲利之王 HKD 3000 + 1個月會期
+              - paragraph [ref=e898]: 賬戶回報百分比最高者 ( % ) 小本翻倍，化身最致命的奇兵！
+              - paragraph [ref=e899]: ● 【 猛攻勇者 】 — 排名 4-10 名獎勵優厚 HKD 500 + 1個月會期
+              - paragraph [ref=e900]: 實力接近，惜敗無悔！展現出色穩健操盤表現，仍可獲得豐富獎品！
+            - paragraph [ref=e901]: ● 尚有其他特設獎項，適時公佈，得獎機會大提升！
+        - generic [ref=e902]:
+          - generic [ref=e903]:
+            - img [ref=e904]
+            - heading "【 其他注意事項 】" [level=3] [ref=e907]
+          - generic [ref=e909]:
+            - paragraph [ref=e910]: 報名即視為同意並遵守以上比賽規則
+            - paragraph [ref=e911]: 比賽官方網站或系統自動統計，將不接受個別申請訴
+            - paragraph [ref=e912]: 每名用戶只允許領取一個獎項 ( 例：同時得第2名、第8名，取其最高排名的獎項 )
+            - paragraph [ref=e913]: Ace 有權利隨機抽查參賽者帳戶的操作情況，以便核對成績獎項，確保每位參賽者都得到公平的環境比賽
+            - paragraph [ref=e914]: Ace Fortune 保留對活動之最終解釋與調整權利
+    - generic [ref=e916]:
+      - heading "【 立即啟動 《ACE明星大亂鬥2026》 挑戰EA王者寶座！ 】" [level=3] [ref=e917]
+      - paragraph [ref=e918]:
+        - text: 誰會成為下一位排行榜上的程式交易王者？
+        - text: 一場策略、風控與心理的極致較量，即將展開！
+        - text: 立即使用 Ace Fortune EA 爭奪王者寶座！
+      - link "尚未有 EA 在手? 立即聯絡小助手查詢" [ref=e919] [cursor=pointer]:
+        - /url: https://wa.link/jg5h3l
+        - generic [ref=e920]: 尚未有 EA 在手?
+        - generic [ref=e921]: 立即聯絡小助手查詢
+  - contentinfo [ref=e922]: © 2026 ACE FORTUNE CHAMPIONSHIP. ALL RIGHTS RESERVED.
