@@ -434,7 +434,7 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
         {/* Logo */}
         <div className="flex-1 flex justify-start">
           <div className="cursor-pointer max-w-[140px] sm:max-w-[170px] md:max-w-[200px]" onClick={() => scrollTo('home')}>
-            <img src="/bg/ACE Fortune Logo B1a.png?v=3" alt="ACE Fortune Logo" className="h-8 sm:h-10 md:h-12 w-full object-contain" />
+            <img src="/bg/ACE Fortune Logo D1a.png?v=1" alt="ACE Fortune Logo" className="h-8 sm:h-10 md:h-12 w-full object-contain" />
           </div>
         </div>
 
