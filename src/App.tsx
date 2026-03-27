@@ -557,17 +557,17 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
               {item.rankChange === 'none' && <Minus className="text-slate-400" style={{ width: `${fontSize + 2}px`, height: `${fontSize + 2}px` }} strokeWidth={3} />}
             </div>
 
-            {/* 用戶名 - 固定寬度約25字 */}
-            <div className="flex-shrink-0 font-black text-slate-800 tracking-tight whitespace-nowrap border-l border-slate-200/80 truncate" style={{ fontSize: `${fontSize}px`, paddingLeft: '8px', paddingRight: '8px', width: isMobile ? '140px' : '230px' }}>
+            {/* 用戶名 */}
+            <div className="flex-shrink-0 font-black text-slate-800 tracking-tight whitespace-nowrap border-l border-slate-200/80 truncate" style={{ fontSize: `${fontSize}px`, paddingLeft: isMobile ? '4px' : '8px', paddingRight: isMobile ? '4px' : '8px', width: isMobile ? '90px' : '230px' }}>
               {item.playerName}
             </div>
 
             {/* EA Coins + 能量條 - 自動填充剩餘空間 */}
-            <div className="flex-1 flex flex-col justify-center min-w-[80px] sm:min-w-0" style={{ paddingLeft: '6px', paddingRight: '6px', gap: '2px' }}>
+            <div className="flex-1 flex flex-col justify-center min-w-0" style={{ paddingLeft: isMobile ? '2px' : '6px', paddingRight: isMobile ? '2px' : '6px', gap: '2px' }}>
               <div className="flex items-center" style={{ gap: '2px' }}>
                 {[...item.eaBreakdown]
                   .sort((a, b) => b.percentage - a.percentage)
-                  .slice(0, 3)
+                  .slice(0, isMobile ? 2 : 3)
                   .map((ea, idx) => {
                   const coinName = ea.eaId.charAt(0).toUpperCase() + ea.eaId.slice(1).toLowerCase() + 'Coin.png';
                   return (
@@ -583,8 +583,8 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
               <StackedEnergyBar totalPercentage={item.percentage || 0} breakdown={item.eaBreakdown} className="w-full" skewClass="skew-x-[-20deg]" />
             </div>
 
-            {/* 金額 - 固定寬度 */}
-            <div className="flex-shrink-0 flex items-center justify-end" style={{ width: isMobile ? '100px' : '160px' }}>
+            {/* 金額 */}
+            <div className="flex-shrink-0 flex items-center justify-end" style={{ width: isMobile ? 'auto' : '160px', minWidth: isMobile ? '85px' : '160px' }}>
               <div className="font-black italic tracking-tighter text-white whitespace-nowrap tabular-nums leading-none"
                 style={{ fontSize: `${amountSize}px`, WebkitTextStroke: isMobile ? '0.5px #000080' : '1px #000080', textShadow: '0 0 10px rgba(0,0,255,0.8), 2px 2px 4px rgba(0,0,0,0.9)' }}>
                 $ {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
@@ -1365,11 +1365,11 @@ export default function App() {
       {currentPage === 'home' && (
         <>
           {/* Top Banner Image */}
-          <div className="w-full bg-black overflow-hidden">
+          <div className="w-full bg-black">
             <img 
               src="/bg/ACE _topbanner.png" 
               alt="ACE Championship Banner" 
-              className="w-full h-auto block object-cover object-center max-h-[50vh] sm:max-h-none"
+              className="w-full h-auto block object-contain object-top"
             />
           </div>
 
