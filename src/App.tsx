@@ -433,8 +433,8 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
       <div className="max-w-7xl mx-auto flex items-center">
         {/* Logo */}
         <div className="flex-1 flex justify-start">
-          <div className="cursor-pointer max-w-[140px] sm:max-w-[170px] md:max-w-[200px]" onClick={() => scrollTo('home')}>
-            <img src="/bg/ACE Fortune Logo D1a.png?v=1" alt="ACE Fortune Logo" className="h-8 sm:h-10 md:h-12 w-full object-contain" />
+          <div className="cursor-pointer max-w-[160px] sm:max-w-[200px] md:max-w-[240px]" onClick={() => scrollTo('home')}>
+            <img src="/bg/ACE Fortune Logo D1a.png?v=1" alt="ACE Fortune Logo" className="h-9 sm:h-11 md:h-14 w-full object-contain" />
           </div>
         </div>
 
