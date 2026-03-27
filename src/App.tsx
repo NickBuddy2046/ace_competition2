@@ -289,26 +289,76 @@ const PopupAd = ({ onClose }: { onClose: () => void }) => {
 };
 
 const SideAds = () => {
-  // Fixed position below LEADERBOARD bar, doesn't move with scroll
+  const [isVisible, setIsVisible] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+  const BANNER_HEIGHT = 480; // Approximate topbanner + LEADERBOARD height
+  
+  useEffect(() => {
+    const checkWidth = () => {
+      const viewportWidth = window.innerWidth;
+      const leaderboardWidth = 1152;
+      const sideSpace = (viewportWidth - leaderboardWidth) / 2;
+      setIsVisible(sideSpace >= 188);
+    };
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    checkWidth();
+    handleScroll();
+    
+    window.addEventListener('resize', checkWidth, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('resize', checkWidth);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
+  if (!isVisible) return null;
+
+  // Calculate ad position: fixed below navbar, follow scroll after banner
+  const baseTop = 100;
+  const scrollOffset = Math.max(0, scrollY - BANNER_HEIGHT + 100);
+  const adTop = baseTop + scrollOffset * 0.1; // Subtle parallax effect
+
   return (
     <>
-      {/* Left Side Ad - positioned below LEADERBOARD bar */}
-      <div className="hidden xl:block absolute left-4 top-[480px] z-30">
+      {/* Left Side Ad */}
+      <div 
+        className="fixed z-30 transition-all duration-500 ease-out" 
+        style={{ 
+          top: `${adTop}px`,
+          right: 'calc(50% + 576px + 8px)',
+          maxWidth: '180px',
+          transform: `translateY(${scrollOffset * 0.05}px)`
+        }}
+      >
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
-            className="w-[160px] 2xl:w-[180px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-full h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-all duration-300 hover:scale-105"
           />
         </a>
       </div>
-      {/* Right Side Ad - positioned below LEADERBOARD bar */}
-      <div className="hidden xl:block absolute right-4 top-[480px] z-30">
+      {/* Right Side Ad */}
+      <div 
+        className="fixed z-30 transition-all duration-500 ease-out" 
+        style={{ 
+          top: `${adTop}px`,
+          left: 'calc(50% + 576px + 8px)',
+          maxWidth: '180px',
+          transform: `translateY(${scrollOffset * 0.05}px)`
+        }}
+      >
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
-            className="w-[160px] 2xl:w-[180px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-full h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-all duration-300 hover:scale-105"
           />
         </a>
       </div>
@@ -1138,6 +1188,28 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
         </div>
       </section>
 
+      {/* Ad Banner - 1016x180 */}
+      <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
+        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+          <img 
+            src="/ibpromotion/Static_20th_anniversery-1016x180-English-GOMU.jpg" 
+            alt="20th Anniversary" 
+            className="w-full h-auto rounded-xl sm:rounded-2xl shadow-2xl hover:opacity-95 transition-opacity"
+          />
+        </a>
+      </section>
+
+      {/* Ad Banner - 1490x350 */}
+      <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+          <img 
+            src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
+            alt="Catch the Golden Opportunity" 
+            className="w-full h-auto rounded-xl sm:rounded-2xl shadow-2xl hover:opacity-95 transition-opacity"
+          />
+        </a>
+      </section>
+
       <SymbolsSection symbolsData={symbolsData} />
     </main>
     </div>
@@ -1366,7 +1438,7 @@ export default function App() {
       {currentPage === 'home' && (
         <>
           {/* Top Banner Image */}
-          <div className="w-full bg-black pt-16 sm:pt-20">
+          <div className="w-full bg-black pt-16 sm:pt-20 relative z-40">
             <img 
               src="/bg/ACE _topbanner.png" 
               alt="ACE Championship Banner" 
@@ -1534,6 +1606,28 @@ export default function App() {
         </section>
 
         <SymbolsSection symbolsData={symbolsData} />
+
+        {/* Ad Banner - 1016x180 */}
+        <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
+          <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+            <img 
+              src="/ibpromotion/Static_20th_anniversery-1016x180-English-GOMU.jpg" 
+              alt="20th Anniversary" 
+              className="w-full h-auto rounded-xl sm:rounded-2xl shadow-2xl hover:opacity-95 transition-opacity"
+            />
+          </a>
+        </section>
+
+        {/* Ad Banner - 1490x350 */}
+        <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+          <a href="#" target="_blank" rel="noopener noreferrer" className="block w-full">
+            <img 
+              src="/ibpromotion/Static_catch_the_golden_opportunity-1490x350-English-GOMU.jpg" 
+              alt="Catch the Golden Opportunity" 
+              className="w-full h-auto rounded-xl sm:rounded-2xl shadow-2xl hover:opacity-95 transition-opacity"
+            />
+          </a>
+        </section>
 
         {/* Explore More Results */}
         <section id="more-results" className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 scroll-mt-24 px-2 sm:px-0">
