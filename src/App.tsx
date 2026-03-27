@@ -1470,59 +1470,45 @@ export default function App() {
 
             {/* Top 3 Champions */}
             <div className="flex flex-col items-center justify-center mt-4 relative z-10">
-              {/* Champions Podium */}
-              <div className="relative w-full max-w-5xl mx-auto px-4">
+              {/* Champions Podium - Relative container for overlay positioning */}
+              <div className="relative w-full max-w-5xl mx-auto">
+                {/* Cup Image - Larger */}
                 <img 
                   src="/bg/cup.png" 
                   alt="Top 3 Champions" 
-                  className="w-full max-w-3xl mx-auto h-auto"
+                  className="w-full max-w-4xl mx-auto h-auto"
                 />
-              </div>
-              
-              {/* Names Row - Below Cups */}
-              <div className="w-full max-w-5xl mx-auto flex justify-center items-end gap-4 sm:gap-8 md:gap-16 px-4 -mt-8 sm:-mt-12 md:-mt-16">
-                {/* 2nd Place - Left */}
-                <div className="text-center flex-1 max-w-[180px]">
-                  <div className="text-slate-200 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    {initialRankings[1]?.playerName || 'TRADER'}
-                  </div>
-                </div>
                 
-                {/* 1st Place - Center */}
-                <div className="text-center flex-1 max-w-[200px]">
-                  <div className="text-yellow-300 font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    {initialRankings[0]?.playerName || 'ALEX99'}
+                {/* Names Overlay - Positioned on cup bases */}
+                <div className="absolute bottom-[12%] left-0 right-0 flex justify-center items-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 px-8 sm:px-12 md:px-16">
+                  {/* 2nd Place - Left */}
+                  <div className="text-center flex-1">
+                    <div className="text-white font-black text-sm sm:text-base md:text-xl lg:text-2xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1.5px #000' }}>
+                      {initialRankings[1]?.playerName || 'TRADER'}
+                    </div>
+                    <div className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)] mt-0.5 sm:mt-1" style={{ WebkitTextStroke: '1px #000' }}>
+                      ${initialRankings[1]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '98,765.20'}
+                    </div>
                   </div>
-                </div>
-                
-                {/* 3rd Place - Right */}
-                <div className="text-center flex-1 max-w-[180px]">
-                  <div className="text-amber-200 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    {initialRankings[2]?.playerName || 'CRYPTO'}
+                  
+                  {/* 1st Place - Center */}
+                  <div className="text-center flex-1">
+                    <div className="text-yellow-300 font-black text-base sm:text-lg md:text-2xl lg:text-3xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1.5px #000' }}>
+                      {initialRankings[0]?.playerName || 'ALEX99'}
+                    </div>
+                    <div className="text-yellow-100 font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)] mt-0.5 sm:mt-1" style={{ WebkitTextStroke: '1px #000' }}>
+                      ${initialRankings[0]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '125,430.50'}
+                    </div>
                   </div>
-                </div>
-              </div>
-              
-              {/* Amounts Row - Bottom */}
-              <div className="w-full max-w-5xl mx-auto flex justify-center items-center gap-4 sm:gap-8 md:gap-16 px-4 mt-2 sm:mt-3">
-                {/* 2nd Place Amount */}
-                <div className="text-center flex-1 max-w-[180px]">
-                  <div className="text-white font-black text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    ${initialRankings[1]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '98,765.20'}
-                  </div>
-                </div>
-                
-                {/* 1st Place Amount */}
-                <div className="text-center flex-1 max-w-[200px]">
-                  <div className="text-yellow-100 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    ${initialRankings[0]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '125,430.50'}
-                  </div>
-                </div>
-                
-                {/* 3rd Place Amount */}
-                <div className="text-center flex-1 max-w-[180px]">
-                  <div className="text-white font-black text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1px #000' }}>
-                    ${initialRankings[2]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '85,432.10'}
+                  
+                  {/* 3rd Place - Right */}
+                  <div className="text-center flex-1">
+                    <div className="text-white font-black text-sm sm:text-base md:text-xl lg:text-2xl tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '1.5px #000' }}>
+                      {initialRankings[2]?.playerName || 'CRYPTO'}
+                    </div>
+                    <div className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,1)] mt-0.5 sm:mt-1" style={{ WebkitTextStroke: '1px #000' }}>
+                      ${initialRankings[2]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '85,432.10'}
+                    </div>
                   </div>
                 </div>
               </div>
