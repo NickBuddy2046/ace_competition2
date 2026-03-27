@@ -1468,19 +1468,47 @@ export default function App() {
         <section id="leaderboard" className="scroll-mt-20">
           <div className="text-center mb-16 relative">
 
-            {/* Prize Pool Info */}
-            <div className="flex flex-col items-center justify-center space-y-4 mt-8 relative z-10">
-              <div className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-6 px-8 py-4 bg-slate-900/80 border border-yellow-500/30 rounded-2xl backdrop-blur-md shadow-[0_0_30px_rgba(234,179,8,0.15)]">
-                <span className="text-slate-300 font-bold text-lg md:text-xl tracking-widest uppercase">Prize Pool</span>
-                <div className="hidden md:block w-px h-8 bg-slate-700"></div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-yellow-500 font-black text-2xl md:text-3xl">$</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 to-yellow-600 font-black text-4xl md:text-6xl tracking-tighter drop-shadow-sm">
-                    100,000
-                  </span>
+            {/* Top 3 Champions */}
+            <div className="flex flex-col items-center justify-center mt-8 relative z-10">
+              {/* Champions Podium */}
+              <div className="relative w-full max-w-4xl mx-auto">
+                <img 
+                  src="/bg/cup.png" 
+                  alt="Top 3 Champions" 
+                  className="w-full h-auto"
+                />
+                {/* 1st Place - Center */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-[35%] text-center">
+                  <div className="text-yellow-300 font-black text-sm sm:text-lg md:text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
+                    {initialRankings[0]?.playerName || 'ALEX99'}
+                  </div>
+                  <div className="text-yellow-100 font-bold text-xs sm:text-sm md:text-lg drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '0.5px #000' }}>
+                    ${initialRankings[0]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '125,430.50'}
+                  </div>
+                </div>
+                
+                {/* 2nd Place - Left */}
+                <div className="absolute left-[15%] sm:left-[18%] top-[45%] text-center">
+                  <div className="text-slate-200 font-black text-xs sm:text-base md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
+                    {initialRankings[1]?.playerName || 'TRADER'}
+                  </div>
+                  <div className="text-slate-100 font-bold text-xs sm:text-sm md:text-base drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '0.5px #000' }}>
+                    ${initialRankings[1]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '98,765.20'}
+                  </div>
+                </div>
+                
+                {/* 3rd Place - Right */}
+                <div className="absolute right-[15%] sm:right-[18%] top-[45%] text-center">
+                  <div className="text-amber-200 font-black text-xs sm:text-base md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '1px #000' }}>
+                    {initialRankings[2]?.playerName || 'CRYPTO'}
+                  </div>
+                  <div className="text-amber-100 font-bold text-xs sm:text-sm md:text-base drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]" style={{ WebkitTextStroke: '0.5px #000' }}>
+                    ${initialRankings[2]?.amount.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '85,432.10'}
+                  </div>
                 </div>
               </div>
               
+              {/* Date and Entry Fee */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
                 <div className="flex items-center gap-3 bg-black/60 px-6 py-3 rounded-xl border border-blue-500/30 shadow-lg backdrop-blur-sm">
                   <Calendar className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
