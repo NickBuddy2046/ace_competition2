@@ -289,53 +289,26 @@ const PopupAd = ({ onClose }: { onClose: () => void }) => {
 };
 
 const SideAds = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const NAVBAR_HEIGHT = 80;
-  const BANNER_HEIGHT = 400; // Approximate banner height
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Calculate position: stay below navbar, follow scroll after banner
-  const minTop = NAVBAR_HEIGHT + 20;
-  const followThreshold = BANNER_HEIGHT - 100;
-  const targetTop = scrollY > followThreshold 
-    ? scrollY + minTop 
-    : minTop;
-  
-  // Smooth transition style
-  const transitionStyle = { transition: 'top 0.3s ease-out' };
-
+  // Always centered vertically in viewport, but not higher than navbar
   return (
     <>
       {/* Left Side Ad */}
-      <div 
-        className="hidden xl:block fixed left-4 z-30" 
-        style={{ top: `${targetTop}px`, ...transitionStyle }}
-      >
+      <div className="hidden xl:block fixed left-4 top-[100px] z-30">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
-            className="w-[140px] 2xl:w-[160px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-[160px] 2xl:w-[180px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
           />
         </a>
       </div>
       {/* Right Side Ad */}
-      <div 
-        className="hidden xl:block fixed right-4 z-30" 
-        style={{ top: `${targetTop}px`, ...transitionStyle }}
-      >
+      <div className="hidden xl:block fixed right-4 top-[100px] z-30">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
             alt="Catch the Golden Opportunity" 
-            className="w-[140px] 2xl:w-[160px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-[160px] 2xl:w-[180px] h-auto rounded-xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
           />
         </a>
       </div>
@@ -891,7 +864,7 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
       <div className="relative z-10 w-full"
         style={{ backgroundImage: "url('/bg/Ace_BackGround2.png')", backgroundSize: '100% auto', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }}>
         <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
-      <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 xl:px-[200px] 2xl:px-[220px] pb-16 sm:pb-24 space-y-16 sm:space-y-24">
+      <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4  pb-16 sm:pb-24 space-y-16 sm:space-y-24">
         <div className="text-center mb-16 relative">
         <p className="text-xl md:text-2xl text-slate-300 font-bold tracking-widest">2026.05 - 2027.04</p>
       </div>
@@ -1104,7 +1077,7 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
       <div className="relative z-10 w-full"
         style={{ backgroundImage: "url('/bg/Ace_BackGround2.png')", backgroundSize: '100% auto', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }}>
         <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
-      <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 xl:px-[200px] 2xl:px-[220px] pb-16 sm:pb-24 space-y-12 sm:space-y-16">
+      <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4  pb-16 sm:pb-24 space-y-12 sm:space-y-16">
         <div className="text-center mb-8 relative">
         </div>
 
@@ -1426,7 +1399,7 @@ export default function App() {
           >
             {/* Dim overlay */}
             <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
-          <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 xl:px-[200px] 2xl:px-[220px] pb-16 sm:pb-24 space-y-16 sm:space-y-24">
+          <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4  pb-16 sm:pb-24 space-y-16 sm:space-y-24">
         
         {/* Leaderboard Section */}
         <section id="leaderboard" className="scroll-mt-20">
