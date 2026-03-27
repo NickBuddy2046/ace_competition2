@@ -289,11 +289,11 @@ const PopupAd = ({ onClose }: { onClose: () => void }) => {
 };
 
 const SideAds = () => {
-  // Always centered vertically in viewport, but not higher than navbar
+  // Fixed position below LEADERBOARD bar, doesn't move with scroll
   return (
     <>
-      {/* Left Side Ad */}
-      <div className="hidden xl:block fixed left-4 top-[100px] z-30">
+      {/* Left Side Ad - positioned below LEADERBOARD bar */}
+      <div className="hidden xl:block absolute left-4 top-[480px] z-30">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
@@ -302,8 +302,8 @@ const SideAds = () => {
           />
         </a>
       </div>
-      {/* Right Side Ad */}
-      <div className="hidden xl:block fixed right-4 top-[100px] z-30">
+      {/* Right Side Ad - positioned below LEADERBOARD bar */}
+      <div className="hidden xl:block absolute right-4 top-[480px] z-30">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img 
             src="/ibpromotion/Static_catch_the_golden_opportunity-300x600-English-GOMU.jpg" 
