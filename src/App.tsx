@@ -1365,11 +1365,11 @@ export default function App() {
       {currentPage === 'home' && (
         <>
           {/* Top Banner Image */}
-          <div className="w-full bg-black">
+          <div className="w-full bg-black pt-16 sm:pt-20">
             <img 
               src="/bg/ACE _topbanner.png" 
               alt="ACE Championship Banner" 
-              className="w-full h-auto block object-contain object-top"
+              className="w-full h-auto block"
             />
           </div>
 
