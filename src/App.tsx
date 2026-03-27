@@ -563,7 +563,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
   // On mobile, use fixed smaller row height; on desktop, use dynamic calculation
   const isMobile = width < 640;
   const rowH = isMobile ? 56 : Math.max(52, Math.floor(availableH / ROWS));
-  const iconSize = Math.max(24, Math.min(48, rowH * 0.7));
+  const iconSize = Math.max(28, Math.min(56, rowH * 0.8));
   const fontSize = isMobile ? 12 : Math.max(13, Math.min(20, rowH * 0.38));
   const coinSize = Math.max(18, Math.min(36, rowH * 0.45));
   const amountSize = isMobile ? 13 : Math.max(13, Math.min(24, rowH * 0.42));
@@ -660,7 +660,7 @@ const EARankingList = ({ rankings, isStatic = false, compact = false }: { rankin
                   ''
             }`}
           >
-          <div className={`flex justify-center items-center flex-shrink-0 ${compact ? 'w-10 sm:w-12 md:w-20' : 'w-16 sm:w-20 md:w-48'}`}>
+          <div className={`flex justify-center items-center flex-shrink-0 ${compact ? 'w-12 sm:w-14 md:w-24' : 'w-20 sm:w-24 md:w-52'}`}>
             {item.rank <= 10 ? (
               <div className="relative flex items-center justify-center">
                 {/* Glow effect for top 3 */}
@@ -673,12 +673,12 @@ const EARankingList = ({ rankings, isStatic = false, compact = false }: { rankin
                   alt={`Rank ${item.rank}`} 
                   className={`relative z-10 object-contain drop-shadow-md transition-transform ${
                     compact 
-                      ? 'w-6 h-6 sm:w-8 sm:h-8 scale-100' 
-                      : item.rank === 1 ? 'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 scale-[2] sm:scale-[2.5] md:scale-[3.5] drop-shadow-[0_0_20px_rgba(250,204,21,1)]' :
-                        item.rank === 2 ? 'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 scale-[1.6] sm:scale-[2] md:scale-[2.5] drop-shadow-[0_0_15px_rgba(148,163,184,0.9)]' :
-                        item.rank === 3 ? 'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 scale-[1.4] sm:scale-[1.6] md:scale-[2.0] drop-shadow-[0_0_15px_rgba(217,119,6,0.9)]' :
-                        item.rank >= 4 && item.rank <= 6 ? 'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 scale-[1.2] sm:scale-[1.4] md:scale-[1.7]' : 
-                        'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12'
+                      ? 'w-7 h-7 sm:w-9 sm:h-9 scale-100' 
+                      : item.rank === 1 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[2] sm:scale-[2.5] md:scale-[3.5] drop-shadow-[0_0_20px_rgba(250,204,21,1)]' :
+                        item.rank === 2 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[1.6] sm:scale-[2] md:scale-[2.5] drop-shadow-[0_0_15px_rgba(148,163,184,0.9)]' :
+                        item.rank === 3 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[1.4] sm:scale-[1.6] md:scale-[2.0] drop-shadow-[0_0_15px_rgba(217,119,6,0.9)]' :
+                        item.rank >= 4 && item.rank <= 6 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[1.2] sm:scale-[1.4] md:scale-[1.7]' : 
+                        'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
                   }`}
                 />
               </div>
