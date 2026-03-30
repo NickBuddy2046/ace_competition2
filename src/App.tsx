@@ -346,12 +346,36 @@ const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerR
 
       {/* Three Cups Layout with Background */}
       <div className="w-full max-w-6xl mx-auto relative">
-        {/* Background Image - Centered */}
+        <div
+          className="pointer-events-none absolute top-0 bottom-0 right-full overflow-hidden"
+          style={{ width: 'max(0px, calc((100vw - min(100vw, 72rem)) / 2))' }}
+        >
+          <div
+            className="absolute inset-y-0 right-0 max-w-none bg-cover bg-center bg-no-repeat scale-x-[-1]"
+            style={{
+              width: '72rem',
+              backgroundImage: 'url(/bg/no1bg.png)'
+            }}
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute top-0 bottom-0 left-full overflow-hidden"
+          style={{ width: 'max(0px, calc((100vw - min(100vw, 72rem)) / 2))' }}
+        >
+          <div
+            className="absolute inset-y-0 left-0 max-w-none bg-cover bg-center bg-no-repeat scale-x-[-1]"
+            style={{
+              width: '72rem',
+              backgroundImage: 'url(/bg/no1bg.png)'
+            }}
+          />
+        </div>
+
+        <div className="relative z-10">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/bg/no1bg.png)' }}
         />
-
         {/* Cups Only - No text underneath */}
         <div className="relative z-10 flex justify-center items-end gap-3 sm:gap-6 md:gap-8 pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-0">
           {/* 2nd Place Cup - Left */}
@@ -495,6 +519,7 @@ const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerR
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Go Market Bonus Promotion */}
