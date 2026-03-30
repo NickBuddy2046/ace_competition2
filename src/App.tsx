@@ -23,70 +23,70 @@ const initialRankings: PlayerRankingItem[] = [
   {
     id: 'ea-1', rank: 1, playerName: 'ALEX99', amount: 1000000.00, percentage: 100, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'KIRIN', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'PHOENIX', percentage: 40, color: 'from-blue-600 via-cyan-400 to-blue-600' }
+      { eaId: 'KIRIN Std', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'PHOENIX Prem', percentage: 40, color: 'from-blue-600 via-cyan-400 to-blue-600' }
     ]
   },
-  { 
+  {
     id: 'ea-2', rank: 2, playerName: 'TRADER', amount: 98765.20, percentage: 78.74, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'PHOENIX', percentage: 70, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'COBRA', percentage: 30, color: 'from-purple-600 via-fuchsia-400 to-purple-600' }
+      { eaId: 'PHOENIX Std', percentage: 70, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'COBRA Prem', percentage: 30, color: 'from-purple-600 via-fuchsia-400 to-purple-600' }
     ]
   },
-  { 
+  {
     id: 'ea-3', rank: 3, playerName: 'CRYPTO', amount: 85432.10, percentage: 68.11, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'COBRA', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'LOTTO', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
+      { eaId: 'COBRA Std', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'LOTTO Prem', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
     ]
   },
-  { 
+  {
     id: 'ea-4', rank: 4, playerName: 'BULLRN', amount: 72100.00, percentage: 57.48, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'LOTTO', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+      { eaId: 'LOTTO Std', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
     ]
   },
-  { 
+  {
     id: 'ea-5', rank: 5, playerName: 'MOONBY', amount: 65430.80, percentage: 52.16, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'BUBO', percentage: 80, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'FALCON', percentage: 20, color: 'from-red-600 via-rose-400 to-red-600' }
+      { eaId: 'BUBO Std', percentage: 80, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'FALCON Prem', percentage: 20, color: 'from-red-600 via-rose-400 to-red-600' }
     ]
   },
-  { 
+  {
     id: 'ea-6', rank: 6, playerName: 'WHALE1', amount: 58900.40, percentage: 46.95, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'FALCON', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'WIZARD', percentage: 40, color: 'from-indigo-600 via-violet-400 to-indigo-600' }
+      { eaId: 'FALCON Std', percentage: 60, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'WIZARD Prem', percentage: 40, color: 'from-indigo-600 via-violet-400 to-indigo-600' }
     ]
   },
-  { 
+  {
     id: 'ea-7', rank: 7, playerName: 'SNIPER', amount: 52100.90, percentage: 41.53, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'WIZARD', percentage: 90, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'KIRIN', percentage: 10, color: 'from-pink-600 via-pink-400 to-pink-600' }
+      { eaId: 'WIZARD Std', percentage: 90, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'KIRIN Prem', percentage: 10, color: 'from-pink-600 via-pink-400 to-pink-600' }
     ]
   },
-  { 
+  {
     id: 'ea-8', rank: 8, playerName: 'PROBOT', amount: 48500.20, percentage: 38.66, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'KIRIN', percentage: 40, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'PHOENIX', percentage: 30, color: 'from-teal-600 via-teal-400 to-teal-600' },
-      { eaId: 'COBRA', percentage: 30, color: 'from-blue-600 via-cyan-400 to-blue-600' }
+      { eaId: 'KIRIN Std', percentage: 40, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'PHOENIX Prem', percentage: 30, color: 'from-teal-600 via-teal-400 to-teal-600' },
+      { eaId: 'COBRA Std', percentage: 30, color: 'from-blue-600 via-cyan-400 to-blue-600' }
     ]
   },
-  { 
+  {
     id: 'ea-9', rank: 9, playerName: 'ALPHA', amount: 42300.10, percentage: 33.72, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'PHOENIX', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+      { eaId: 'PHOENIX Std', percentage: 100, color: 'from-orange-600 via-yellow-400 to-orange-600' }
     ]
   },
-  { 
+  {
     id: 'ea-10', rank: 10, playerName: 'OMEGA', amount: 38900.50, percentage: 31.01, rankChange: 'none',
     eaBreakdown: [
-      { eaId: 'COBRA', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
-      { eaId: 'LOTTO', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
+      { eaId: 'COBRA Prem', percentage: 50, color: 'from-orange-600 via-yellow-400 to-orange-600' },
+      { eaId: 'LOTTO Std', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
     ]
   },
 ];
@@ -796,9 +796,16 @@ const Navbar = ({ currentPage, setCurrentPage }: { currentPage: string, setCurre
 }
 
 const DUMMY_USERS = [
-  "ALEX99", "TRADER", "CRYPTO", "BULLRN", "MOONBY", 
+  "ALEX99", "TRADER", "CRYPTO", "BULLRN", "MOONBY",
   "WHALE1", "SNIPER", "PROBOT", "ALPHA", "OMEGA"
 ];
+
+// Add EA version suffix (Std or Prem) based on index
+const addEAVersion = (eaName: string, index: number) => {
+  // Alternate between Std and Prem based on index
+  const version = index % 2 === 0 ? 'Std' : 'Prem';
+  return `${eaName} ${version}`;
+};
 
 const useWindowSize = () => {
   const [size, setSize] = useState({ width: typeof window !== 'undefined' ? window.innerWidth : 1024, height: typeof window !== 'undefined' ? window.innerHeight : 768 });
@@ -810,7 +817,7 @@ const useWindowSize = () => {
   return size;
 };
 
-const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { rankings: PlayerRankingItem[], isStatic?: boolean, compact?: boolean }) => {
+const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlightPremCoins = false }: { rankings: PlayerRankingItem[], isStatic?: boolean, compact?: boolean, highlightPremCoins?: boolean }) => {
   const { height, width } = useWindowSize();
   // Available height: subtract navbar (~64px), title+subtitle (~120px), container padding (~64px), gaps (9 * gap)
   const ROWS = 10;
@@ -842,7 +849,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
                 {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-md opacity-50 rounded-full scale-125 animate-pulse"></div>}
                 {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-md opacity-50 rounded-full scale-110 animate-pulse"></div>}
                 {item.rank <= 10 ? (
-                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank === 10 ? iconSize * 1.2 : iconSize}px`, height: `${item.rank === 10 ? iconSize * 1.2 : iconSize}px` }} />
+                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.95 : iconSize * 0.85}px`, height: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.95 : iconSize * 0.85}px` }} />
                 ) : (
                   <span className="font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif', fontSize: `${fontSize * 1.5}px` }}>{item.rank}</span>
                 )}
@@ -871,10 +878,24 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
                   .sort((a, b) => b.percentage - a.percentage)
                   .slice(0, isMobile ? 2 : 3)
                   .map((ea, idx) => {
-                  const coinName = ea.eaId.charAt(0).toUpperCase() + ea.eaId.slice(1).toLowerCase() + 'Coin.png';
+                  // Extract EA name without version suffix (e.g., "PHOENIX Std" -> "PHOENIX")
+                  const eaNameOnly = ea.eaId.split(' ')[0];
+                  const isPrem = ea.eaId.toLowerCase().includes('prem');
+                  const coinName = eaNameOnly.charAt(0).toUpperCase() + eaNameOnly.slice(1).toLowerCase() + 'Coin.png';
                   return (
                     <div key={idx} className="relative group">
-                      <img src={`/eacoin/${coinName}`} alt={ea.eaId} className="object-contain drop-shadow cursor-pointer hover:scale-125 transition-transform duration-200" style={{ width: `${coinSize}px`, height: `${coinSize}px` }} />
+                      {highlightPremCoins && isPrem && (
+                        <div
+                          className="pointer-events-none absolute inset-[-2px] rounded-full border-2 border-yellow-400 shadow-[0_0_10px_rgba(251,191,36,0.65)]"
+                          aria-hidden="true"
+                        />
+                      )}
+                      <img
+                        src={`/eacoin/${coinName}`}
+                        alt={ea.eaId}
+                        className="relative z-10 object-contain drop-shadow cursor-pointer hover:scale-125 transition-transform duration-200"
+                        style={{ width: `${coinSize}px`, height: `${coinSize}px` }}
+                      />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-sm font-bold px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
                         {ea.eaId}
                       </div>
@@ -887,8 +908,8 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
 
             {/* 金額 */}
             <div className="flex-shrink-0 flex items-center justify-end" style={{ width: isMobile ? 'auto' : '200px', minWidth: isMobile ? '100px' : '200px' }}>
-              <div className="font-black italic tracking-tighter text-white whitespace-nowrap tabular-nums leading-none"
-                style={{ fontSize: `${amountSize}px`, WebkitTextStroke: isMobile ? '0.5px #000080' : '1px #000080', textShadow: '0 0 10px rgba(0,0,255,0.8), 2px 2px 4px rgba(0,0,0,0.9)' }}>
+              <div className="font-black italic tracking-tighter whitespace-nowrap tabular-nums leading-none"
+                style={{ fontSize: `${amountSize}px`, color: '#000080', WebkitTextStroke: isMobile ? '0.5px #000080' : '1px #000080', textShadow: 'none' }}>
                 $ {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
               </div>
             </div>
@@ -899,7 +920,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false }: { ran
   );
 };
 
-const EARankingList = ({ rankings, isStatic = false, compact = false }: { rankings: RankingItem[], isStatic?: boolean, compact?: boolean }) => {
+const EARankingList = ({ rankings, isStatic = false, compact = false, showPercentage = false }: { rankings: RankingItem[], isStatic?: boolean, compact?: boolean, showPercentage?: boolean }) => {
   return (
     <div className="flex flex-col gap-1 md:gap-0 px-1 sm:px-2 md:px-8">
       <AnimatePresence>
@@ -961,18 +982,23 @@ const EARankingList = ({ rankings, isStatic = false, compact = false }: { rankin
             <span 
               className={`font-black text-slate-800 tracking-wider sm:tracking-widest uppercase text-left leading-none truncate ${compact ? 'text-sm sm:text-base md:text-2xl' : 'text-xl sm:text-2xl md:text-4xl'}`}
             >
-              {item.eaId.substring(0, 6).toUpperCase()}
+              {item.eaId.toUpperCase()}
             </span>
           </div>
-          <span 
-            className={`font-black text-slate-800 leading-none text-right opacity-80 flex-shrink-0 ${compact ? 'text-sm sm:text-base md:text-xl' : 'text-lg sm:text-xl md:text-3xl'}`}
-          >
-            $
-          </span>
-          <span 
+          {!showPercentage && (
+            <span
+              className={`font-black text-slate-800 leading-none text-right opacity-80 flex-shrink-0 ${compact ? 'text-sm sm:text-base md:text-xl' : 'text-lg sm:text-xl md:text-3xl'}`}
+            >
+              $
+            </span>
+          )}
+          <span
             className={`font-black text-slate-900 tracking-tight text-right leading-none tabular-nums whitespace-nowrap flex-shrink-0 ${compact ? 'text-xs sm:text-sm md:text-xl w-[70px] sm:w-[90px] md:w-[140px]' : 'text-lg sm:text-xl md:text-3xl w-[100px] sm:w-[130px] md:w-[220px]'}`}
           >
-            {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
+            {showPercentage
+              ? `${item.percentage.toFixed(1)}%`
+              : (isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />)
+            }
           </span>
         </motion.div>
         ))}
@@ -1127,11 +1153,12 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
   // Generate mock annual EA rankings
   const annualEARankings = DUMMY_USERS.map((user, index) => {
     const amount = 800000 - (index * 60000) + Math.floor(Math.random() * 20000);
+    const eaName = characters[index % characters.length].name;
     return {
       id: `annual-ea-${index}`,
       rank: index + 1,
       playerName: user,
-      eaId: characters[index % characters.length].name,
+      eaId: addEAVersion(eaName, index),
       amount: amount,
       percentage: Math.max(15, (amount / 800000) * 100),
       rankChange: ['up', 'down', 'none'][Math.floor(Math.random() * 3)] as 'up' | 'down' | 'none'
@@ -1162,9 +1189,65 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
         style={{ backgroundImage: "url('/bg/Ace_BackGround2.png')", backgroundSize: '100% auto', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }}>
         <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
       <main className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4  pb-16 sm:pb-24 space-y-16 sm:space-y-24">
-        <div className="text-center mb-16 relative">
+        <div className="text-center mb-8 relative">
         <p className="text-xl md:text-2xl text-slate-300 font-bold tracking-widest">2026.05 - 2027.04</p>
       </div>
+
+      {/* Total Profit Showcase */}
+      <section className="mb-16 px-4">
+        <div className="max-w-5xl mx-auto space-y-6">
+          {/* 2025 Total Profit */}
+          <div className="relative bg-gradient-to-r from-amber-900/80 via-yellow-700/80 to-amber-900/80 rounded-3xl p-6 sm:p-8 border-4 border-yellow-600/50 shadow-[0_0_50px_rgba(251,191,36,0.4)] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent animate-shimmer"></div>
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="text-4xl sm:text-5xl md:text-6xl">🏆</div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-yellow-300 tracking-wider">2025 年度總盈利</h3>
+                  <p className="text-sm sm:text-base text-yellow-200/80 font-bold">Previous Year Total Profit</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight tabular-nums"
+                  style={{
+                    textShadow: '0 0 20px rgba(255,215,0,1), 0 0 40px rgba(255,215,0,0.6), 0 4px 8px rgba(0,0,0,0.9)',
+                    WebkitTextStroke: '2px #D4AF37'
+                  }}>
+                  $ 10,832,016.85
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2026 Total Profit */}
+          <div className="relative bg-gradient-to-r from-green-900/80 via-emerald-700/80 to-green-900/80 rounded-3xl p-6 sm:p-8 border-4 border-green-500/50 shadow-[0_0_50px_rgba(34,197,94,0.4)] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/20 to-transparent animate-shimmer"></div>
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="text-4xl sm:text-5xl md:text-6xl">💰</div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-green-300 tracking-wider">2026 年度總盈利</h3>
+                  <p className="text-sm sm:text-base text-green-200/80 font-bold">Current Year Total Profit</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight tabular-nums"
+                  style={{
+                    textShadow: '0 0 20px rgba(34,197,94,1), 0 0 40px rgba(34,197,94,0.6), 0 4px 8px rgba(0,0,0,0.9)',
+                    WebkitTextStroke: '2px #10B981',
+                    animation: 'pulseNumber 2s ease-in-out infinite'
+                  }}>
+                  $ 15,247,893.42
+                </div>
+                <div className="text-green-300 text-sm sm:text-base md:text-lg font-bold mt-2 flex items-center justify-end gap-1">
+                  <span>▲</span>
+                  <span>+40.8% vs 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="mb-12 md:mb-24">
         <SectionTitle subtitle="SPECIAL AWARDS">年度特別大獎</SectionTitle>
@@ -1309,11 +1392,34 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
 
 const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsData: SymbolItem[] }) => {
   const [selectedMonth, setSelectedMonth] = useState('2026-05');
-  
+
   const months = [
     "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10",
     "2026-11", "2026-12", "2027-01", "2027-02", "2027-03", "2027-04"
   ];
+
+  // Check if a month has ended (month is in the past)
+  const isMonthEnded = (monthStr: string) => {
+    // 2026-05 is always available as an exception
+    if (monthStr === '2026-05') return true;
+
+    const [year, month] = monthStr.split('-').map(Number);
+    // month from string is 1-12, but Date constructor expects 0-11
+    // Get the last moment of the month (last day at 23:59:59.999)
+    const endOfMonth = new Date(year, month, 0, 23, 59, 59, 999);
+    const now = new Date();
+
+    // Month has ended if current date is after the end of that month
+    return now > endOfMonth;
+  };
+
+  // Set initial month to the latest ended month
+  useEffect(() => {
+    const latestEndedMonth = months.slice().reverse().find(month => isMonthEnded(month));
+    if (latestEndedMonth && selectedMonth !== latestEndedMonth && !isMonthEnded(selectedMonth)) {
+      setSelectedMonth(latestEndedMonth);
+    }
+  }, []);
 
   // Auto-scroll to Total Ranking when month changes
   useEffect(() => {
@@ -1347,11 +1453,12 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
 
   const monthlyEARankings = DUMMY_USERS.map((user, index) => {
     const amount = 100000 - (index * 8000) + Math.floor(Math.random() * 5000) * (seed % 5);
+    const eaName = characters[index % characters.length].name;
     return {
       id: `monthly-ea-${index}`,
       rank: index + 1,
       playerName: user,
-      eaId: characters[index % characters.length].name,
+      eaId: addEAVersion(eaName, index),
       amount: amount,
       percentage: Math.max(15, (amount / 100000) * 100),
       rankChange: ['up', 'down', 'none'][Math.floor(Math.random() * 3)] as 'up' | 'down' | 'none'
@@ -1387,19 +1494,25 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
 
       {/* Month Selector */}
       <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-4 mb-8 sm:mb-12 px-2">
-        {months.map(month => (
-          <button
-            key={month}
-            onClick={() => setSelectedMonth(month)}
-            className={`px-2 sm:px-4 py-1.5 sm:py-2 md:px-6 md:py-3 rounded-lg sm:rounded-xl font-bold tracking-wider sm:tracking-widest text-xs sm:text-sm md:text-base transition-all min-h-[40px] sm:min-h-[44px] ${
-              selectedMonth === month 
-                ? 'bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.5)] scale-105' 
-                : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'
-            }`}
-          >
-            {month}
-          </button>
-        ))}
+        {months.map(month => {
+          const monthEnded = isMonthEnded(month);
+          return (
+            <button
+              key={month}
+              onClick={() => monthEnded && setSelectedMonth(month)}
+              disabled={!monthEnded}
+              className={`px-2 sm:px-4 py-1.5 sm:py-2 md:px-6 md:py-3 rounded-lg sm:rounded-xl font-bold tracking-wider sm:tracking-widest text-xs sm:text-sm md:text-base transition-all min-h-[40px] sm:min-h-[44px] ${
+                !monthEnded
+                  ? 'bg-slate-600 text-slate-500 cursor-not-allowed opacity-50'
+                  : selectedMonth === month
+                    ? 'bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.5)] scale-105'
+                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white cursor-pointer'
+              }`}
+            >
+              {month}
+            </button>
+          );
+        })}
       </div>
 
       {/* Monthly Champions Podium */}
@@ -1419,7 +1532,7 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
           <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-[1.5rem] sm:rounded-[2rem]" style={{
             background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
           }}></div>
-          <TotalRankingList rankings={finalMonthlyRankings} isStatic={true} />
+          <TotalRankingList rankings={finalMonthlyRankings} isStatic={true} highlightPremCoins={true} />
         </div>
       </section>
 
@@ -1515,11 +1628,12 @@ export default function App() {
         };
       }).sort((a, b) => b.amount - a.amount);
 
-      const maxAmount = generated[0].amount;
+      // Use a fixed baseline for percentage calculation to allow values over 100%
+      const baselineAmount = 40000; // Fixed baseline for profit percentage
       return generated.map((item, index) => ({
         ...item,
         rank: index + 1,
-        percentage: Math.max(15, (item.amount / maxAmount) * 100)
+        percentage: (item.amount / baselineAmount) * 100
       }));
     };
     
@@ -1757,6 +1871,15 @@ export default function App() {
           }
         }
 
+        @keyframes pulseNumber {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
         .animate-shimmer {
           animation: shimmer 3s ease-in-out infinite;
         }
@@ -1844,8 +1967,58 @@ export default function App() {
                   background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
                 }}></div>
                 
-                <TotalRankingList rankings={monthlyRankings} />
+                <TotalRankingList rankings={monthlyRankings} highlightPremCoins={true} />
               </div>
+            </div>
+
+            <div className="max-w-6xl mx-auto w-full">
+              <a
+                href="https://www.ace-tester.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative mb-5 block overflow-hidden rounded-[1.75rem] border-2 border-yellow-300/80 bg-gradient-to-r from-[#fff3a3] via-[#f59e0b] to-[#ef4444] p-[2px] shadow-[0_0_0_2px_rgba(255,255,255,0.08),0_18px_45px_rgba(239,68,68,0.32),0_0_45px_rgba(245,158,11,0.28)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+              >
+                <div className="relative flex min-h-[96px] items-center overflow-hidden rounded-[calc(1.75rem-2px)] bg-[linear-gradient(115deg,rgba(124,10,10,0.98),rgba(30,41,59,0.95)_18%,rgba(3,7,18,0.96)_38%,rgba(2,132,199,0.95)_68%,rgba(245,158,11,0.95)_88%,rgba(239,68,68,0.96))] px-4 py-4 sm:min-h-[108px] sm:px-6 md:px-8">
+                  <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute inset-0 bg-[repeating-linear-gradient(-55deg,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_12px,transparent_12px,transparent_28px)] opacity-20" />
+                    <div className="absolute -left-16 top-0 h-full w-24 -skew-x-12 bg-white/20 blur-md transition-transform duration-700 group-hover:translate-x-[190%]" />
+                    <div className="absolute left-1/3 top-0 h-full w-20 -skew-x-12 bg-yellow-200/20 blur-md transition-transform duration-700 group-hover:translate-x-[240%]" />
+                    <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28),transparent_68%)]" />
+                    <div className="absolute inset-y-0 left-0 w-28 bg-[radial-gradient(circle_at_left,rgba(255,255,255,0.18),transparent_72%)]" />
+                  </div>
+                  <div className="relative z-10 flex w-full items-center justify-between gap-3 sm:gap-4">
+                    <div className="hidden sm:flex shrink-0 items-center justify-center">
+                      <div className="rounded-2xl border border-white/25 bg-black/25 px-3 py-3 shadow-[inset_0_0_18px_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                        <div className="text-center font-black italic leading-none text-yellow-300">
+                          <div className="text-[11px] tracking-[0.35em]">HOT</div>
+                          <div className="mt-1 text-2xl text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]">SETTING</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1 flex items-center gap-2">
+                        <span className="rounded-full border border-red-300/70 bg-red-500 px-2 py-1 text-[10px] font-black uppercase tracking-[0.25em] text-white shadow-[0_0_16px_rgba(239,68,68,0.75)] sm:text-[11px]">
+                          爆推
+                        </span>
+                        <p className="text-[11px] font-black uppercase tracking-[0.35em] text-yellow-200 sm:text-xs">
+                          ACE TESTER
+                        </p>
+                      </div>
+                      <p className="text-sm font-black leading-snug text-white sm:text-base md:text-xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.55)' }}>
+                        唔知用咩Setting 比賽好? 去 Ace Tester 尋寶搵Setting啦 ! 大量Setting等緊你黎下載!
+                      </p>
+                      <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.3em] text-yellow-100/90 sm:text-xs">
+                        Download More Winning Setups Now
+                      </p>
+                    </div>
+                    <div className="shrink-0">
+                      <div className="rounded-full border-2 border-white/80 bg-[linear-gradient(135deg,#fef08a,#f59e0b,#ef4444)] px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-slate-950 shadow-[0_0_20px_rgba(254,240,138,0.45),0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105 sm:px-5 sm:py-3 sm:text-sm">
+                        立即前往 {'>>'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
 
             <div className="max-w-6xl mx-auto w-full">
@@ -1920,16 +2093,37 @@ export default function App() {
                 
                 <div className="relative z-10">
                   <div className="text-center mb-2 sm:mb-4 border-b border-slate-300/50 pb-2 sm:pb-3 relative flex items-center justify-center gap-2 sm:gap-3">
-                    <img src={`/eacoin/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`} alt={`${selectedCharacter} Coin`} className="w-6 h-6 sm:w-8 sm:h-8 object-contain drop-shadow-md" />
+                    <div>
+                      <div className="rounded-full border border-cyan-700/40 bg-white/25 p-[2px] shadow-sm">
+                        <img
+                          src={`/eacoin/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`}
+                          alt={`${selectedCharacter} STD Coin`}
+                          className="w-6 h-6 rounded-full object-contain drop-shadow-md sm:w-8 sm:h-8"
+                        />
+                      </div>
+                    </div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>{selectedCharacter}</h3>
-                    <img src={`/eacoin/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`} alt={`${selectedCharacter} Coin`} className="w-6 h-6 sm:w-8 sm:h-8 object-contain drop-shadow-md" />
-                    <div className="absolute right-0 flex items-center gap-1 sm:gap-2 bg-green-50 px-1.5 sm:px-2 py-0.5 rounded-full border border-green-200">
+                    <div>
+                      <div className="rounded-full bg-gradient-to-br from-yellow-200 via-yellow-400 to-amber-600 p-[2px] shadow-[0_0_12px_rgba(251,191,36,0.55)]">
+                        <img
+                          src={`/eacoin/${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`}
+                          alt={`${selectedCharacter} PREM Coin`}
+                          className="w-6 h-6 rounded-full object-contain bg-white/15 drop-shadow-md sm:w-8 sm:h-8"
+                        />
+                      </div>
+                    </div>
+                    <div className="absolute left-0 flex items-center gap-1 sm:gap-2 bg-green-50 px-1.5 sm:px-2 py-0.5 rounded-full border border-green-200">
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
                       <span className="text-green-600 font-bold text-[10px] sm:text-xs tracking-widest">LIVE</span>
                     </div>
+                    <div className="absolute right-0">
+                      <span className="bg-blue-600/90 text-white font-bold text-[10px] sm:text-xs md:text-sm px-2 sm:px-3 py-1 rounded-lg border-2 border-blue-400 shadow-md">
+                        Profit Percentage
+                      </span>
+                    </div>
                   </div>
                   <div className="flex flex-col gap-0.5 px-0 md:px-2">
-                    <EARankingList rankings={characterRankings} compact={true} />
+                    <EARankingList rankings={characterRankings} compact={true} showPercentage={true} />
                   </div>
                 </div>
               </div>
