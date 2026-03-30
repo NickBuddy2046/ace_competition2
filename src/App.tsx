@@ -286,6 +286,19 @@ const PopupAd = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
+const getLeaderboardDateRangeLabel = () => {
+  const competitionStart = new Date(2026, 4, 1);
+  const now = new Date();
+  const effectiveDate = now < competitionStart ? competitionStart : now;
+  const startOfMonth = new Date(effectiveDate.getFullYear(), effectiveDate.getMonth(), 1);
+  const endOfMonth = new Date(effectiveDate.getFullYear(), effectiveDate.getMonth() + 1, 0);
+  const monthName = startOfMonth.toLocaleString('en-US', { month: 'long' });
+  const startDay = String(startOfMonth.getDate()).padStart(2, '0');
+  const endDay = String(endOfMonth.getDate()).padStart(2, '0');
+
+  return `${startDay} ${monthName} - ${endDay} ${monthName}, ${startOfMonth.getFullYear()}`;
+};
+
 const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerRankingItem[], showPromotion?: boolean }) => {
   // rankings 是按 rank 排序的数组: [0]=第1名, [1]=第2名, [2]=第3名
   const [liveAmounts, setLiveAmounts] = useState({
@@ -293,6 +306,7 @@ const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerR
     second: rankings[1]?.amount || 98765.20,
     third: rankings[2]?.amount || 85432.10
   });
+  const leaderboardDateRangeLabel = getLeaderboardDateRangeLabel();
 
   const first = rankings[0];   // 第1名 - 中间
   const second = rankings[1];  // 第2名 - 左边
@@ -318,7 +332,7 @@ const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerR
       <div className="hidden md:flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
         <div className="flex items-center gap-3 bg-gradient-to-r from-blue-600/90 to-blue-800/90 px-8 py-4 rounded-2xl border-2 border-blue-400/60 shadow-[0_0_25px_rgba(59,130,246,0.5)] backdrop-blur-sm animate-pulse">
           <Calendar className="w-6 h-6 md:w-8 md:h-8 text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.8)]" />
-          <span className="text-white font-black text-xl md:text-2xl tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">June 01 - June 30, 2026</span>
+          <span className="text-white font-black text-xl md:text-2xl tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">{leaderboardDateRangeLabel}</span>
         </div>
 
         <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 px-8 py-4 rounded-2xl border-2 border-yellow-400 shadow-[0_0_30px_rgba(34,197,94,0.6)] backdrop-blur-sm">
@@ -531,7 +545,7 @@ const ChampionsPodium = ({ rankings, showPromotion = true }: { rankings: PlayerR
       <div className="flex md:hidden flex-col items-center justify-center gap-4 mt-6">
         <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600/90 to-blue-800/90 px-6 py-3 rounded-xl border-2 border-blue-400/60 shadow-[0_0_20px_rgba(59,130,246,0.5)] backdrop-blur-sm animate-pulse">
           <Calendar className="w-5 h-5 text-yellow-300 drop-shadow-[0_0_6px_rgba(253,224,71,0.8)]" />
-          <span className="text-white font-black text-base tracking-wider uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">June 01 - June 30, 2026</span>
+          <span className="text-white font-black text-base tracking-wider uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{leaderboardDateRangeLabel}</span>
         </div>
 
         <div className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 rounded-xl border-2 border-yellow-400 shadow-[0_0_25px_rgba(34,197,94,0.6)] backdrop-blur-sm">
@@ -849,7 +863,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
                 {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-md opacity-50 rounded-full scale-125 animate-pulse"></div>}
                 {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-md opacity-50 rounded-full scale-110 animate-pulse"></div>}
                 {item.rank <= 10 ? (
-                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.95 : iconSize * 0.85}px`, height: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.95 : iconSize * 0.85}px` }} />
+                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px`, height: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px` }} />
                 ) : (
                   <span className="font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif', fontSize: `${fontSize * 1.5}px` }}>{item.rank}</span>
                 )}
@@ -920,7 +934,7 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
   );
 };
 
-const EARankingList = ({ rankings, isStatic = false, compact = false, showPercentage = false }: { rankings: RankingItem[], isStatic?: boolean, compact?: boolean, showPercentage?: boolean }) => {
+const EARankingList = ({ rankings, isStatic = false, compact = false, showPercentage = false, shrinkRank7 = false }: { rankings: RankingItem[], isStatic?: boolean, compact?: boolean, showPercentage?: boolean, shrinkRank7?: boolean }) => {
   return (
     <div className="flex flex-col gap-1 md:gap-0 px-1 sm:px-2 md:px-8">
       <AnimatePresence>
@@ -954,7 +968,9 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
                   alt={`Rank ${item.rank}`}
                   className={`relative z-10 object-contain drop-shadow-md transition-transform ${
                     compact
-                      ? 'w-7 h-7 sm:w-9 sm:h-9 scale-100'
+                      ? item.rank === 7 && shrinkRank7
+                        ? 'w-6 h-6 sm:w-8 sm:h-8 scale-100'
+                        : 'w-7 h-7 sm:w-9 sm:h-9 scale-100'
                       : item.rank === 1 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[2] sm:scale-[2.5] md:scale-[3.5] drop-shadow-[0_0_20px_rgba(250,204,21,1)]' :
                         item.rank === 2 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[1.6] sm:scale-[2] md:scale-[2.5] drop-shadow-[0_0_15px_rgba(148,163,184,0.9)]' :
                         item.rank === 3 ? 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 scale-[1.4] sm:scale-[1.6] md:scale-[2.0] drop-shadow-[0_0_15px_rgba(217,119,6,0.9)]' :
@@ -1004,6 +1020,219 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
         ))}
       </AnimatePresence>
     </div>
+  );
+};
+
+const getSeedValue = (value: string) =>
+  value.split('').reduce((total, char, index) => total + char.charCodeAt(0) * (index + 1), 0);
+
+const AceTesterBanner = () => {
+  return (
+    <div className="max-w-6xl mx-auto w-full">
+      <a
+        href="https://www.ace-tester.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative mb-5 block overflow-hidden rounded-[1.75rem] border-2 border-yellow-300/80 bg-gradient-to-r from-[#fff3a3] via-[#f59e0b] to-[#ef4444] p-[2px] shadow-[0_0_0_2px_rgba(255,255,255,0.08),0_18px_45px_rgba(239,68,68,0.32),0_0_45px_rgba(245,158,11,0.28)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+      >
+        <div className="relative flex min-h-[96px] items-center overflow-hidden rounded-[calc(1.75rem-2px)] bg-[linear-gradient(115deg,rgba(124,10,10,0.98),rgba(30,41,59,0.95)_18%,rgba(3,7,18,0.96)_38%,rgba(2,132,199,0.95)_68%,rgba(245,158,11,0.95)_88%,rgba(239,68,68,0.96))] px-4 py-4 sm:min-h-[108px] sm:px-6 md:px-8">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(-55deg,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_12px,transparent_12px,transparent_28px)] opacity-20" />
+            <div className="absolute -left-16 top-0 h-full w-24 -skew-x-12 bg-white/20 blur-md transition-transform duration-700 group-hover:translate-x-[190%]" />
+            <div className="absolute left-1/3 top-0 h-full w-20 -skew-x-12 bg-yellow-200/20 blur-md transition-transform duration-700 group-hover:translate-x-[240%]" />
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28),transparent_68%)]" />
+            <div className="absolute inset-y-0 left-0 w-28 bg-[radial-gradient(circle_at_left,rgba(255,255,255,0.18),transparent_72%)]" />
+          </div>
+          <div className="relative z-10 flex w-full items-center justify-between gap-3 sm:gap-4">
+            <div className="hidden sm:flex shrink-0 items-center justify-center">
+              <div className="rounded-2xl border border-white/25 bg-black/25 px-3 py-3 shadow-[inset_0_0_18px_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                <div className="text-center font-black italic leading-none text-yellow-300">
+                  <div className="text-[11px] tracking-[0.35em]">HOT</div>
+                  <div className="mt-1 text-2xl text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]">SETTING</div>
+                </div>
+              </div>
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="rounded-full border border-red-300/70 bg-red-500 px-2 py-1 text-[10px] font-black uppercase tracking-[0.25em] text-white shadow-[0_0_16px_rgba(239,68,68,0.75)] sm:text-[11px]">
+                  爆推
+                </span>
+                <p className="text-[11px] font-black uppercase tracking-[0.35em] text-yellow-200 sm:text-xs">
+                  ACE TESTER
+                </p>
+              </div>
+              <p className="text-sm font-black leading-snug text-white sm:text-base md:text-xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.55)' }}>
+                唔知用咩Setting比賽好? 去 Ace Tester 尋寶啦! 海量Setting等緊你黎下載!
+              </p>
+              <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.3em] text-yellow-100/90 sm:text-xs">
+                Download More Winning Setups Now
+              </p>
+            </div>
+            <div className="shrink-0">
+              <div className="rounded-full border-2 border-white/80 bg-[linear-gradient(135deg,#fef08a,#f59e0b,#ef4444)] px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-slate-950 shadow-[0_0_20px_rgba(254,240,138,0.45),0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105 sm:px-5 sm:py-3 sm:text-sm">
+                立即前往 {'>>'}
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+};
+
+const generateProgramRankingsForPeriod = (charName: string, periodKey: string, annualMode = false): RankingItem[] => {
+  const seed = getSeedValue(`${periodKey}-${charName}`);
+  const rotatedUsers = DUMMY_USERS.map((_, index) => DUMMY_USERS[(index + (seed % DUMMY_USERS.length)) % DUMMY_USERS.length]);
+  const baseAmount = annualMode ? 180000 : 52000;
+  const gap = annualMode ? 3200 : 900;
+  const variance = annualMode ? 9500 : 3200;
+  const baselineAmount = annualMode ? 90000 : 40000;
+
+  return rotatedUsers
+    .map((user, index) => {
+      const bonus = (seed * (index + 5) + charName.charCodeAt(0) * 23) % variance;
+      const swing = ((seed + index * 37) % Math.max(1, Math.floor(variance / 2)));
+      const amount = baseAmount + (DUMMY_USERS.length - index) * gap + bonus - swing;
+
+      return {
+        id: `${periodKey}-${charName.toLowerCase()}-${index + 1}`,
+        rank: index + 1,
+        playerName: user,
+        eaId: user,
+        amount,
+        percentage: 0,
+        rankChange: 'none' as 'up' | 'down' | 'none',
+      };
+    })
+    .sort((a, b) => b.amount - a.amount)
+    .map((item, index) => ({
+      ...item,
+      rank: index + 1,
+      percentage: Number(((item.amount / baselineAmount) * 100).toFixed(1)),
+    }));
+};
+
+const ProgramRankingSection = ({
+  title,
+  subtitle,
+  periodKey,
+  annualMode = false,
+}: {
+  title: string,
+  subtitle: string,
+  periodKey: string,
+  annualMode?: boolean,
+}) => {
+  const [selectedCharacter, setSelectedCharacter] = useState(characters[0].name);
+  const rankings = generateProgramRankingsForPeriod(selectedCharacter, periodKey, annualMode);
+  const coinName = `${selectedCharacter.charAt(0).toUpperCase() + selectedCharacter.slice(1).toLowerCase()}Coin.png`;
+
+  return (
+    <section>
+      <SectionTitle subtitle={subtitle}>{title}</SectionTitle>
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-1.5 sm:gap-2 mb-4 px-1 sm:px-0">
+          {characters.map((char) => {
+            const isWizard = char.name === 'WIZARD';
+
+            if (isWizard) {
+              return (
+                <div
+                  key={char.name}
+                  className="relative rounded-lg overflow-hidden border-2 border-slate-800 bg-white/80 shadow-lg min-h-[60px] sm:min-h-[80px] flex items-center justify-center cursor-not-allowed"
+                >
+                  <div className="absolute inset-0 bg-slate-400/60"></div>
+                  <span className="relative text-slate-600 font-black text-[10px] sm:text-xs md:text-sm tracking-wider text-center px-1 leading-tight z-10">
+                    New EA<br/>Coming<br/>Soon
+                  </span>
+                </div>
+              );
+            }
+
+            return (
+              <motion.div
+                key={char.name}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setSelectedCharacter(char.name)}
+                className={`relative group cursor-pointer rounded-lg overflow-hidden border-2 transition-all shadow-lg min-h-[60px] sm:min-h-[80px] ${
+                  selectedCharacter === char.name
+                    ? 'border-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.5)] bg-slate-900/50'
+                    : 'border-slate-800 hover:border-yellow-500/50 bg-white/80'
+                }`}
+              >
+                <img
+                  src={char.imageUrl}
+                  alt={char.name}
+                  className={`w-full h-full object-cover transition-all duration-300 ${
+                    selectedCharacter === char.name ? 'scale-105 opacity-100' : 'scale-100 opacity-60 group-hover:scale-105 group-hover:opacity-100'
+                  }`}
+                  referrerPolicy="no-referrer"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-300 ${
+                  selectedCharacter === char.name ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'
+                }`} />
+                <div className="absolute bottom-0.5 sm:bottom-1 left-0 w-full px-0.5 sm:px-1 text-center">
+                  <span className={`text-[10px] sm:text-xs md:text-sm font-black italic tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,1)] transition-colors ${
+                    selectedCharacter === char.name ? 'text-yellow-400' : 'text-white group-hover:text-yellow-400'
+                  }`}>
+                    {char.name}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div
+          className="relative rounded-xl sm:rounded-2xl p-2 sm:p-4 md:p-6 shadow-2xl text-slate-900 border border-white/60"
+          style={{
+            background: 'linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.5)'
+          }}
+        >
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-xl sm:rounded-2xl" style={{
+            background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8) 0%, transparent 50%)'
+          }}></div>
+
+          <div className="relative z-10">
+            <div className="text-center mb-2 sm:mb-4 border-b border-slate-300/50 pb-2 sm:pb-3 relative flex items-center justify-center gap-2 sm:gap-3">
+              <div>
+                <div className="rounded-full border border-cyan-700/40 bg-white/25 p-[2px] shadow-sm">
+                  <img
+                    src={`/eacoin/${coinName}`}
+                    alt={`${selectedCharacter} STD Coin`}
+                    className="w-6 h-6 rounded-full object-contain drop-shadow-md sm:w-8 sm:h-8"
+                  />
+                </div>
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 uppercase tracking-wider" style={{ fontFamily: 'Impact, sans-serif' }}>{selectedCharacter}</h3>
+              <div>
+                <div className="rounded-full bg-gradient-to-br from-yellow-200 via-yellow-400 to-amber-600 p-[2px] shadow-[0_0_12px_rgba(251,191,36,0.55)]">
+                  <img
+                    src={`/eacoin/${coinName}`}
+                    alt={`${selectedCharacter} PREM Coin`}
+                    className="w-6 h-6 rounded-full object-contain bg-white/15 drop-shadow-md sm:w-8 sm:h-8"
+                  />
+                </div>
+              </div>
+              <div className="absolute left-0 flex items-center gap-1 sm:gap-2 bg-amber-50 px-1.5 sm:px-2 py-0.5 rounded-full border border-amber-200">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
+                <span className="text-amber-700 font-bold text-[10px] sm:text-xs tracking-widest">FINAL</span>
+              </div>
+              <div className="absolute right-0">
+                <span className="bg-blue-600/90 text-white font-bold text-[10px] sm:text-xs md:text-sm px-2 sm:px-3 py-1 rounded-lg border-2 border-blue-400 shadow-md">
+                  Profit Percentage
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-0.5 px-0 md:px-2">
+              <EARankingList rankings={rankings} compact={true} showPercentage={true} shrinkRank7={true} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -1360,6 +1589,15 @@ const AnnualResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDat
         </div>
       </section>
 
+      <AceTesterBanner />
+
+      <ProgramRankingSection
+        title="年度程式排名"
+        subtitle="ANNUAL PROGRAM RANKING"
+        periodKey="annual-2026-2027"
+        annualMode={true}
+      />
+
       {/* Ad Banner - Below ALL EA RANKING */}
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
         <a href="https://app.gomarkets.mu/?Pcode=MLT6MDB&actype=2&s=r10" target="_blank" rel="noopener noreferrer" className="block w-full">
@@ -1559,6 +1797,14 @@ const MonthlyResults = ({ onBack, symbolsData }: { onBack: () => void, symbolsDa
           </div>
         </div>
       </section>
+
+      <AceTesterBanner />
+
+      <ProgramRankingSection
+        title="月度程式排名"
+        subtitle={`MONTHLY PROGRAM RANKING - ${selectedMonth}`}
+        periodKey={`monthly-${selectedMonth}`}
+      />
 
       {/* Ad Banner - 1016x180 (Above Most Used Symbols) */}
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-8 sm:my-12">
@@ -2005,7 +2251,7 @@ export default function App() {
                         </p>
                       </div>
                       <p className="text-sm font-black leading-snug text-white sm:text-base md:text-xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.55)' }}>
-                        唔知用咩Setting 比賽好? 去 Ace Tester 尋寶搵Setting啦 ! 大量Setting等緊你黎下載!
+                        唔知用咩Setting比賽好? 去 Ace Tester 尋寶啦! 海量Setting等緊你黎下載!
                       </p>
                       <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.3em] text-yellow-100/90 sm:text-xs">
                         Download More Winning Setups Now
@@ -2123,7 +2369,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-0.5 px-0 md:px-2">
-                    <EARankingList rankings={characterRankings} compact={true} showPercentage={true} />
+                    <EARankingList rankings={characterRankings} compact={true} showPercentage={true} shrinkRank7={true} />
                   </div>
                 </div>
               </div>
