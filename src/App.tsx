@@ -907,13 +907,30 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
   const amountSize = isMobile ? 13 : Math.max(13, Math.min(24, rowH * 0.42));
   const py = Math.max(4, Math.floor((rowH - iconSize) / 2));
 
+  // Get card gradient based on rank
+  const getCardGradient = (rank: number) => {
+    if (rank <= 3) {
+      // Metallic Gold for ranks 1-3
+      return "bg-gradient-to-br from-yellow-300 via-amber-200 to-yellow-400 backdrop-blur-md border-yellow-500/70";
+    } else if (rank <= 6) {
+      // Metallic Silver for ranks 4-6
+      return "bg-gradient-to-br from-gray-300 via-slate-200 to-gray-400 backdrop-blur-md border-gray-400/70";
+    } else if (rank <= 10) {
+      // Metallic Copper/Bronze for ranks 7-10
+      return "bg-gradient-to-br from-orange-300 via-amber-200 to-orange-400 backdrop-blur-md border-orange-500/70";
+    } else {
+      // Light blue for ranks 11-15
+      return "bg-gradient-to-br from-sky-200 via-blue-100 to-cyan-200 backdrop-blur-md border-sky-300/70";
+    }
+  };
+
   return (
     <div className="flex flex-col w-full relative z-10" style={{ gap: `${GAP}px` }}>
       {rankings.map((item) => {
         return (
-          <div 
-            key={item.id} 
-            className="flex items-center w-full relative z-0 hover:z-50 bg-gradient-to-br from-amber-50/95 to-yellow-100/90 backdrop-blur-md rounded-xl shadow-sm border border-yellow-200/60 hover:shadow-md transition-shadow"
+          <div
+            key={item.id}
+            className={`flex items-center w-full relative z-0 hover:z-50 rounded-xl shadow-sm border hover:shadow-md transition-shadow ${getCardGradient(item.rank)}`}
             style={{ paddingTop: `${py}px`, paddingBottom: `${py}px`, paddingLeft: '10px', paddingRight: '10px' }}
           >
             {/* 排名 Icon */}
