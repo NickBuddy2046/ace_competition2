@@ -89,6 +89,41 @@ const initialRankings: PlayerRankingItem[] = [
       { eaId: 'LOTTO Std', percentage: 50, color: 'from-green-600 via-emerald-400 to-green-600' }
     ]
   },
+  {
+    id: 'ea-11', rank: 11, playerName: 'BLAZER', amount: 35200.30, percentage: 28.07, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'FALCON Prem', percentage: 65, color: 'from-red-600 via-rose-400 to-red-600' },
+      { eaId: 'BUBO Std', percentage: 35, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  {
+    id: 'ea-12', rank: 12, playerName: 'VIPER', amount: 31800.60, percentage: 25.36, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'WIZARD Prem', percentage: 55, color: 'from-indigo-600 via-violet-400 to-indigo-600' },
+      { eaId: 'KIRIN Std', percentage: 45, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  {
+    id: 'ea-13', rank: 13, playerName: 'STORM', amount: 28500.40, percentage: 22.72, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'PHOENIX Prem', percentage: 80, color: 'from-blue-600 via-cyan-400 to-blue-600' },
+      { eaId: 'COBRA Std', percentage: 20, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  {
+    id: 'ea-14', rank: 14, playerName: 'HAWK', amount: 25100.70, percentage: 20.01, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'LOTTO Prem', percentage: 70, color: 'from-green-600 via-emerald-400 to-green-600' },
+      { eaId: 'FALCON Std', percentage: 30, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
+  {
+    id: 'ea-15', rank: 15, playerName: 'TURBO', amount: 22300.90, percentage: 17.78, rankChange: 'none',
+    eaBreakdown: [
+      { eaId: 'BUBO Prem', percentage: 60, color: 'from-teal-600 via-teal-400 to-teal-600' },
+      { eaId: 'WIZARD Std', percentage: 40, color: 'from-orange-600 via-yellow-400 to-orange-600' }
+    ]
+  },
 ];
 
 const characters: CharacterItem[] = [
@@ -859,7 +894,7 @@ const useWindowSize = () => {
 const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlightPremCoins = false }: { rankings: PlayerRankingItem[], isStatic?: boolean, compact?: boolean, highlightPremCoins?: boolean }) => {
   const { height, width } = useWindowSize();
   // Available height: subtract navbar (~64px), title+subtitle (~120px), container padding (~64px), gaps (9 * gap)
-  const ROWS = 10;
+  const ROWS = 15;
   const RESERVED = 64 + 120 + 64;
   const GAP = compact ? 4 : 4;
   const availableH = height - RESERVED - (ROWS - 1) * GAP;
@@ -887,8 +922,8 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
                 {item.rank === 1 && <div className="absolute inset-0 bg-yellow-400 blur-md opacity-50 rounded-full scale-150 animate-pulse"></div>}
                 {item.rank === 2 && <div className="absolute inset-0 bg-slate-300 blur-md opacity-50 rounded-full scale-125 animate-pulse"></div>}
                 {item.rank === 3 && <div className="absolute inset-0 bg-amber-600 blur-md opacity-50 rounded-full scale-110 animate-pulse"></div>}
-                {item.rank <= 10 ? (
-                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px`, height: `${item.rank <= 3 ? iconSize : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px` }} />
+                {item.rank <= 15 ? (
+                  <img src={`/bg/Number_A_PNG/A${item.rank}.png?v=1`} alt={`Rank ${item.rank}`} className="relative z-10 object-contain drop-shadow-lg" style={{ width: `${item.rank <= 3 ? iconSize : item.rank >= 11 ? iconSize * 0.72 : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px`, height: `${item.rank <= 3 ? iconSize : item.rank >= 11 ? iconSize * 0.72 : item.rank === 10 ? iconSize * 0.82 : item.rank === 7 ? iconSize * 0.64 : iconSize * 0.72}px` }} />
                 ) : (
                   <span className="font-black italic text-slate-400" style={{ fontFamily: 'Impact, sans-serif', fontSize: `${fontSize * 1.5}px` }}>{item.rank}</span>
                 )}
@@ -2467,7 +2502,7 @@ export default function App() {
         <section id="rules" className="space-y-8 md:space-y-12 scroll-mt-24 px-2 sm:px-4">
           <div className="text-center space-y-2 sm:space-y-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black italic text-yellow-600 drop-shadow-sm">《ACE明星大亂鬥2026》</h2>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black italic text-slate-700 drop-shadow-sm">官方比賽細則</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black italic text-white drop-shadow-sm">官方比賽細則</h2>
             <h2 
               className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-black italic text-yellow-400 animate-pulse tracking-wide"
               style={{ 
@@ -2481,8 +2516,8 @@ export default function App() {
 
           <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
             <RuleCard title="【 比賽宗旨 】" icon={<Zap className="w-4 h-4 sm:w-5 sm:h-5" />}>
-              為鼓勵學員透過實戰，提升各種EA策略運用技巧，互相觀摩、交流操作手法，
-              ACE 將舉辦《ACE EA明星大亂鬥2026》，以程式交易實力一較高下，角逐豐厚獎金及「EA王者」榮譽稱號。
+              為鼓勵學員透過實戰，提升各種EA策略運用技巧、互相觀摩、交流操作手法，
+              Ace Fortune 舉辦《ACE明星大亂鬥2026》，以EA程式交易一較高下，角逐豐厚獎金及「EA王者」榮譽稱號。
               <br /><br />
               <span className="text-yellow-400 font-bold">本次活動無需任何報名費，旨在推動實戰操作與技術交流。</span>
             </RuleCard>
@@ -2490,9 +2525,9 @@ export default function App() {
             <RuleCard title="【 首輪比賽日期 】" icon={<Clock className="w-4 h-4 sm:w-5 sm:h-5" />}>
               <div className="space-y-4 text-slate-300 text-sm text-center">
                 <p className="text-lg text-slate-200">2026年5月1日（00:00）至5月31日（23:59）｜以系統時間為準</p>
-                <p>※ 比賽期間可中途加入，惟開始越早，排名優勢越高。</p>
-                <p>※ 只會計算比賽期間內的 EA 開單與平倉單。(其他訂單不會計算)</p>
-                
+                <p>※ 比賽期間可中途加入，開始越早，優勢越高。</p>
+                <p>※ 只計算比賽期間內的 EA 開單及平倉單。(其他交易訂單不作計算)</p>
+
                 <div className="flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-12 pt-4 sm:pt-8">
                   <div className="flex flex-col items-center space-y-2 sm:space-y-4">
                     <p className="text-lg sm:text-2xl font-bold text-yellow-500 uppercase tracking-wider">STARTED</p>
@@ -2519,13 +2554,12 @@ export default function App() {
 
           <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
             <RuleCard title="【 參加方法 】" icon={<Users className="w-4 h-4 sm:w-5 sm:h-5" />}>
-              凡使用 ACE Fortune EA 操作，即自動視為報名參賽 (不論任何版本)
-              成績將自動登錄至比賽即時排行榜系統，並於參賽者帳號的圖表中實時顯示
+              凡使用合資格版本 Ace Fortune EA 進行交易，即自動報名參賽，不需要另外獨立報名。成績將自動登錄至比賽即時排行榜系統，並於參賽者帳號的圖表中實時顯示
             </RuleCard>
 
             <RuleCard title="【 參賽資格 】" icon={<ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />}>
               <ul className="list-disc list-inside space-y-2 text-slate-400 text-sm">
-                <li>所有 ACE Fortune AI CAD 在籍學生均可參與</li>
+                <li>所有 Ace Fortune AI CAD 在籍學生均可參與</li>
                 <li>必須使用 實盤 LIVE Standard 帳戶 (不接受 DEMO、CENT、美分帳戶、RAW、ECN等，任何非標準實盤將自動除名)</li>
                 <li>無參賽帳戶上限，但必須為已登記 AI CAD 團體福利的帳戶</li>
                 <li>Ace Fortune 工作人員或導師均可參加，但不予競逐獎項，如有得獎將順延至其他參賽者</li>
@@ -2535,43 +2569,77 @@ export default function App() {
             <RuleCard title="【 比賽規則與公平性聲明 】" icon={<Info className="w-4 h-4 sm:w-5 sm:h-5" />}>
               <p className="text-slate-400 text-sm leading-relaxed">
                 本比賽由 Ace Fortune 主辦，負責獎金、獎品、評審與頒獎活動等全程支援。
-                整個比賽過程將以公開、透明、公正 原則執行，排名可透過比賽平時即時 查詢。
+                整個比賽過程將以公開、透明、公正原則執行，排名可透過比賽平時即時查詢。
                 比賽期間嚴禁作弊、假帳號交易、人為干預紀錄等行為，一經發現，將即時取消資格並不作另行通知。
               </p>
             </RuleCard>
 
             <RuleCard title="【 獎勵與表揚機制 】" icon={<Award className="w-4 h-4 sm:w-5 sm:h-5" />}>
               <div className="space-y-4 text-slate-400 text-sm">
-                <p>● 第一輪 (5月賽季) 成績將作為日後可能延伸的【 年度聯賽 】累計成績</p>
-                <p>● 賽事結束後約兩個月內 舉行頒獎典禮，邀請得獎者親臨現場領獎</p>
-                <p>● 得獎者需準備 不少於5分鐘的操作分享 PPT ( 或影片 )，進行現場或線上播放</p>
-                <p>● 若無法出席頒獎活動，將視作放棄得獎資格，由排名次一者遞補 ( 海外得獎者可預先錄製分享影片 )</p>
+                <p>● 每輪月度成績將作為延伸的【 2026年度聯賽 】累計成績，首輪比賽為2026年5月</p>
+
+                <p className="text-yellow-400 font-bold text-base mt-6">● 每月EA總盈利金額排名 【 全面制霸組 】</p>
                 <div className="pl-4 border-l-2 border-yellow-500/30 space-y-2">
-                  <p><span className="text-yellow-400 font-bold">● 【 金牌霸主 】</span> — 終極EA王者榮耀 HKD 28000 + 1個月會期</p>
+                  <p><span className="text-yellow-400 font-bold">● 第1名</span> — 終極EA王者榮耀 HKD 10000 , 另加 Ace Tester Token 500</p>
                   <p className="pl-4">總盈利金額最高者 榮登排行榜之首，真正的 EA 操盤之神！</p>
-                  
-                  <p><span className="text-slate-300 font-bold">● 【 銀色勇者 】</span> — 攻守兼備的準王者 HKD 12000 + 1個月會期</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第2名</span> — 攻守兼備的準王者 HKD 5000, 另加 Ace Tester Token 500</p>
                   <p className="pl-4">總盈利金額排名第二 靠實力穩紮穩打，貼身緊咬頂尖高手！</p>
-                  
-                  <p><span className="text-amber-700 font-bold">● 【 銅幣精英 】</span> — 穩健突進的潛力王者 HKD 5000 + 1個月會期</p>
+
+                  <p><span className="text-amber-600 font-bold">● 第3名</span> — 穩健前行的挑戰者 HKD 3000, 另加 Ace Tester Token 500</p>
                   <p className="pl-4">總盈利金額排名第三 靈活操作、嚴守紀律，是市場中的黑馬！</p>
-                  
-                  <p><span className="text-yellow-500 font-bold">● 【 倍化霸主 】</span> — 以小博大的獲利之王 HKD 3000 + 1個月會期</p>
-                  <p className="pl-4">賬戶回報百分比最高者 ( % ) 小本翻倍，化身最致命的奇兵！</p>
-                  
-                  <p><span className="text-slate-400 font-bold">● 【 猛攻勇者 】</span> — 排名 4-10 名獎勵優厚 HKD 500 + 1個月會期</p>
-                  <p className="pl-4">實力接近，惜敗無悔！展現出色穩健操盤表現，仍可獲得豐富獎品！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第4-6名</span> — 盡力爭勝的實力派 HKD 1500, 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">每天在進步，盡力爭勝，化身最致命的奇兵！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第7-10名</span> — 展示潛力，實力不可忽視 HKD 800, 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">亦步亦趨的EA操作員，潛力不可設限！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第11-15名</span> — Ace Tester Token 500</p>
+                  <p className="pl-4">實力接近！展現出色穩健操盤表現！</p>
                 </div>
-                <p>● 尚有其他特設獎項，適時公佈，得獎機會大提升！</p>
+
+                <p className="text-yellow-400 font-bold text-base mt-6">● 每月獨立EA盈利%百分比排名 【 EA專精組 】</p>
+                <div className="pl-4 border-l-2 border-yellow-500/30 space-y-2">
+                  <p><span className="text-yellow-400 font-bold">● 第1名</span> — 獨自升級頂峰相見 HKD 1500 , 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">EA操作爐火純青 ，榮登排行榜之首！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第2名</span> — 人機合一 HKD 800, 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">交易邏輯完美同步，EA認知無出其右！</p>
+
+                  <p><span className="text-amber-600 font-bold">● 第3名</span> — EA領航員 HKD 500, 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">全力匹配市場節奏，EA化身交易左右手！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第4-5名</span> — 力爭上游的挑戰者 HKD 300, 另加 Ace Tester Token 500</p>
+                  <p className="pl-4">操作穩中求勝！</p>
+
+                  <p><span className="text-slate-300 font-bold">● 第6-10名</span> — Ace Tester Token 500</p>
+                  <p className="pl-4">潛伏中的EA研究員，潛力不可設限！</p>
+                </div>
+
+                <div className="pl-4 border-l-2 border-yellow-400/50 space-y-1 mt-4 bg-yellow-500/5 rounded-r-lg p-3">
+                  <p className="text-yellow-400 font-bold">● 【 EA專精組 】 特設EA經驗值紅利！盈利獎金層層疊</p>
+                  <p className="pl-4">獨立EA年度累積盈利達到 HKD500,000 - 組別獎金 x1.1倍</p>
+                  <p className="pl-4">年度累積盈利達到 HKD1,000,000 - 組別獎金 x1.2倍</p>
+                  <p className="pl-4">年度累積盈利達到 HKD5,000,000 - 組別獎金 x1.3倍</p>
+                </div>
+
+                <div className="space-y-2 mt-4">
+                  <p>● 如有參加者於多過一個組別得獎，將按獎金多寡確定得獎組別，不予多重得獎。 其他組別得獎排名順延處理。</p>
+                  <p>● 所有上榜優勝者，【 全面制霸組 】第1-15名，【 EA專精組 】第1-10名，均獲邀參加【 實力傳承計畫 】，介紹新同學報名AI CAD，可享獨家減免回贈優惠，詳情向助手查詢</p>
+                  <p>●《ACE明星大亂鬥2026》將舉行季度頒獎典禮，邀請得獎者親臨現場領獎</p>
+                  <p>● 得獎者需準備不少於5分鐘的操作分享，進行現場或線上播放 (PPT 或解說影片)</p>
+                  <p>● 若無法出席頒獎活動，將視作放棄得獎資格，由排名次一者遞補 ( 海外得獎者可預先錄製分享影片 )</p>
+                  <p>● 尚有其他特設獎項，年度特獎，適時公佈，得獎機會大提升！</p>
+                </div>
               </div>
             </RuleCard>
 
             <RuleCard title="【 其他注意事項 】" icon={<TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />}>
               <div className="space-y-2 text-slate-400 text-sm">
-                <p>報名即視為同意並遵守以上比賽規則</p>
-                <p>比賽官方網站或系統自動統計，將不接受個別申請訴</p>
-                <p>每名用戶只允許領取一個獎項 ( 例：同時得第2名、第8名，取其最高排名的獎項 )</p>
-                <p>Ace 有權利隨機抽查參賽者帳戶的操作情況，以便核對成績獎項，確保每位參賽者都得到公平的環境比賽</p>
+                <p>參與比賽即視為同意並遵守以上規則</p>
+                <p>比賽官方網站或系統自動統計，將不接受個別申請投訴</p>
+                <p>Ace Fortune 有權隨機抽查參賽者帳戶的操作情況，以便核對成績獎項，確保每位參賽者都得到公平的環境比賽</p>
                 <p className="text-yellow-500 font-bold mt-4">Ace Fortune 保留對活動之最終解釋與調整權利</p>
               </div>
             </RuleCard>
