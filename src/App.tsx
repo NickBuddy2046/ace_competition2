@@ -928,11 +928,11 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
     <div className="flex flex-col w-full relative z-10" style={{ gap: `${GAP}px` }}>
       {rankings.map((item) => {
         return (
-          <div
-            key={item.id}
-            className={`flex items-center w-full relative z-0 hover:z-50 rounded-xl shadow-sm border hover:shadow-md transition-shadow ${getCardGradient(item.rank)}`}
-            style={{ paddingTop: `${py}px`, paddingBottom: `${py}px`, paddingLeft: '10px', paddingRight: '10px' }}
-          >
+          <React.Fragment key={item.id}>
+            <div
+              className={`flex items-center w-full relative z-0 hover:z-50 rounded-xl shadow-sm border hover:shadow-md transition-shadow ${getCardGradient(item.rank)}`}
+              style={{ paddingTop: `${py}px`, paddingBottom: `${py}px`, paddingLeft: '10px', paddingRight: '10px' }}
+            >
             {/* 排名 Icon */}
             <div className="flex-shrink-0 flex items-center justify-center relative z-20" style={{ width: `${iconSize + 8}px` }}>
               <div className="relative flex items-center justify-center">
@@ -1004,7 +1004,23 @@ const TotalRankingList = ({ rankings, isStatic = false, compact = false, highlig
                 $ {isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />}
               </div>
             </div>
-          </div>
+            </div>
+            {item.rank === 10 && (
+              <motion.div
+                aria-hidden="true"
+                className="pointer-events-none mx-1 sm:mx-2 rounded-full"
+                style={{
+                  height: '4px',
+                  backgroundImage:
+                    'linear-gradient(90deg, rgba(255,0,128,0) 0%, rgba(255,0,128,0.95) 15%, rgba(255,196,0,0.95) 35%, rgba(34,211,238,0.95) 55%, rgba(168,85,247,0.95) 75%, rgba(255,0,128,0.95) 90%, rgba(255,0,128,0) 100%)',
+                  backgroundSize: '200% 100%',
+                  boxShadow: '0 0 14px rgba(59,130,246,0.45)',
+                }}
+                animate={{ backgroundPosition: ['0% 50%', '200% 50%'] }}
+                transition={{ duration: 2.2, ease: 'linear', repeat: Infinity }}
+              />
+            )}
+          </React.Fragment>
         );
       })}
     </div>
