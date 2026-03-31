@@ -1016,21 +1016,23 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
     <div className="flex flex-col gap-1 md:gap-0 px-1 sm:px-2 md:px-8">
       <AnimatePresence>
         {rankings.map((item) => (
-          <motion.div 
-            layout 
+          <motion.div
+            layout
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            key={item.id} 
-            className={`grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-2 sm:gap-x-3 md:gap-x-6 items-center py-2 md:py-1 hover:bg-white/40 rounded-xl px-1 sm:px-2 -mx-1 sm:-mx-2 transition-colors duration-200 cursor-default border-b border-slate-300/30 last:border-0 relative z-0 hover:z-50 ${
-              compact 
-                ? 'mb-1' 
-                : item.rank === 1 ? 'mb-12 md:mb-16 mt-8 md:mt-12' : 
-                  item.rank === 2 ? 'mb-8 md:mb-12' : 
-                  item.rank === 3 ? 'mb-6 md:mb-8' : 
-                  item.rank >= 4 && item.rank <= 6 ? 'mb-4 md:mb-6' : 
+            key={item.id}
+            className={`grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-2 sm:gap-x-3 md:gap-x-6 items-center py-2 md:py-1 rounded-xl px-1 sm:px-2 -mx-1 sm:-mx-2 transition-colors duration-200 cursor-default border-b border-slate-300/30 last:border-0 relative z-0 hover:z-50 ${
+              item.rank <= 5 ? 'bg-gradient-to-r from-orange-200/60 via-amber-100/60 to-orange-200/60 hover:from-orange-300/70 hover:via-amber-200/70 hover:to-orange-300/70' : 'hover:bg-white/40'
+            } ${
+              compact
+                ? 'mb-1'
+                : item.rank === 1 ? 'mb-12 md:mb-16 mt-8 md:mt-12' :
+                  item.rank === 2 ? 'mb-8 md:mb-12' :
+                  item.rank === 3 ? 'mb-6 md:mb-8' :
+                  item.rank >= 4 && item.rank <= 6 ? 'mb-4 md:mb-6' :
                   ''
-            }`}
+            } ${item.rank === 5 ? 'after:content-[""] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[3px] after:bg-gradient-to-r after:from-transparent after:via-red-500 after:to-transparent after:shadow-[0_0_10px_rgba(239,68,68,0.6)] after:animate-pulse' : ''}`}
           >
           <div className={`flex justify-center items-center flex-shrink-0 ${compact ? 'w-12 sm:w-14 md:w-24' : 'w-20 sm:w-24 md:w-52'}`}>
             {item.rank <= 10 ? (
