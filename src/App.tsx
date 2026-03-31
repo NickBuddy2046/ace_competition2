@@ -1022,7 +1022,7 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             key={item.id}
-            className={`grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-2 sm:gap-x-3 md:gap-x-6 items-center py-2 md:py-1 rounded-xl px-1 sm:px-2 -mx-1 sm:-mx-2 transition-colors duration-200 cursor-default border-b border-slate-300/30 last:border-0 relative z-0 hover:z-50 ${
+            className={`grid grid-cols-[auto_auto_1fr_auto_auto] gap-x-2 sm:gap-x-3 md:gap-x-6 items-center py-2 md:py-1 rounded-xl px-1 sm:px-2 -mx-1 sm:-mx-2 transition-colors duration-200 cursor-default border-b border-slate-300/30 last:border-0 relative z-0 overflow-visible hover:z-50 ${
               item.rank <= 5 ? 'bg-gradient-to-r from-orange-200/60 via-amber-100/60 to-orange-200/60 hover:from-orange-300/70 hover:via-amber-200/70 hover:to-orange-300/70' : 'hover:bg-white/40'
             } ${
               compact
@@ -1032,7 +1032,7 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
                   item.rank === 3 ? 'mb-6 md:mb-8' :
                   item.rank >= 4 && item.rank <= 6 ? 'mb-4 md:mb-6' :
                   ''
-            } ${item.rank === 5 ? 'after:content-[""] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[3px] after:bg-gradient-to-r after:from-transparent after:via-red-500 after:to-transparent after:shadow-[0_0_10px_rgba(239,68,68,0.6)] after:animate-pulse' : ''}`}
+            }`}
           >
           <div className={`flex justify-center items-center flex-shrink-0 ${compact ? 'w-12 sm:w-14 md:w-24' : 'w-20 sm:w-24 md:w-52'}`}>
             {item.rank <= 10 ? (
@@ -1095,6 +1095,19 @@ const EARankingList = ({ rankings, isStatic = false, compact = false, showPercen
               : (isStatic ? item.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : <AnimatedNumber value={item.amount} />)
             }
           </span>
+          {item.rank === 5 && (
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-2 left-0 right-0 h-[4px] rounded-full shadow-[0_0_14px_rgba(59,130,246,0.45)]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, rgba(255,0,128,0) 0%, rgba(255,0,128,0.95) 15%, rgba(255,196,0,0.95) 35%, rgba(34,211,238,0.95) 55%, rgba(168,85,247,0.95) 75%, rgba(255,0,128,0.95) 90%, rgba(255,0,128,0) 100%)',
+                backgroundSize: '200% 100%',
+              }}
+              animate={{ backgroundPosition: ['0% 50%', '200% 50%'] }}
+              transition={{ duration: 2.2, ease: 'linear', repeat: Infinity }}
+            />
+          )}
         </motion.div>
         ))}
       </AnimatePresence>
